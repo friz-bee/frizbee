@@ -5,31 +5,38 @@
     "services": "Services",
     "portfolio": "Portfolio",
     "pricing": "Pricing",
-    "contact": "Contact Us"
+    "contact": "Contact"
   },
   "home": {
     "hero": {
-      "title": "Bring your web projects to life",
-      "subtitle": "Frizbee designs custom web solutions for your business. Showcase websites, e-commerce and business applications.",
-      "cta": "Start a project"
+      "title": "Let's create your digital project together",
+      "highlight": "digital project",
+      "subtitle": "Innovative and high-performance web solutions for your business",
+      "cta": "Start a project",
+      "about": {
+        "cta": "Learn more about us"
+      },
+      "services": {
+        "pricing": "View pricing"
+      }
     },
     "about": {
       "cta": "Learn more about Frizbee"
     },
     "services": {
-      "title": "Why choose Frizbee?",
+      "title": "Our Services",
       "pricing": "View pricing",
       "expertise": {
-        "title": "Technical expertise",
-        "description": "Modern and efficient solutions tailored to your needs"
+        "title": "Technical Expertise",
+        "description": "A team of experienced developers for robust and high-performance solutions"
       },
       "support": {
-        "title": "Support",
-        "description": "Personalized follow-up throughout your project"
+        "title": "Premium Support",
+        "description": "Personalized support throughout your project"
       },
       "performance": {
-        "title": "Performance",
-        "description": "Fast websites optimized for search engines"
+        "title": "Optimal Performance",
+        "description": "Optimized solutions for an exceptional user experience"
       }
     },
     "portfolio": {
@@ -43,37 +50,291 @@
   },
   "about": {
     "title": "About Us",
-    "description": "We are a team of passionate web developers and creative designers."
+    "description": "We are a team of passionate web developers and creative designers.",
+    "hero": {
+      "title": "About",
+      "subtitle": "A passionate team that transforms your ideas into innovative digital solutions"
+    },
+    "mission": {
+      "title": "Our Story",
+      "description1": "Founded by web development enthusiasts, Frizbee was born from the desire to create innovative and accessible digital solutions. Our unique approach combines creativity and technical expertise to bring your projects to life.",
+      "description2": "We believe in the power of innovation and collaboration. Our young and dynamic team brings a fresh and modern vision to each project, while ensuring professional and high-performance results."
+    },
+    "values": {
+      "title": "Our Values",
+      "innovation": {
+        "title": "Innovation",
+        "description": "We constantly push the boundaries to create innovative and high-performance digital solutions."
+      },
+      "collaboration": {
+        "title": "Collaboration",
+        "description": "We work closely with our clients to ensure results that exceed their expectations."
+      },
+      "excellence": {
+        "title": "Excellence",
+        "description": "We are committed to providing superior quality solutions, paying special attention to details."
+      }
+    },
+    "team": {
+      "title": "Our Team",
+      "vision": {
+        "title": "Our Vision",
+        "description": "A young and dynamic team passionate about innovation and web development."
+      },
+      "mission": {
+        "title": "Our Mission",
+        "description": "Create innovative digital solutions that transform your ideas into reality."
+      }
+    },
+    "cta": {
+      "title": "Ready to start your project?",
+      "description": "Contact us to discuss your project and discover how we can help you bring it to life.",
+      "button": "Contact us"
+    }
   },
   "services": {
     "title": "Our Services",
-    "web": {
-      "title": "Showcase Websites",
-      "description": "Present your business with elegance"
+    "hero": {
+      "title": "Our Services",
+      "subtitle": "Complete and professional web solutions to meet all your needs"
+    },
+    "showcase": {
+      "title": "Showcase Website",
+      "description": "Present your business with elegance",
+      "features": {
+        "1": "Modern and responsive design",
+        "2": "Integrated SEO optimization",
+        "3": "Custom contact form",
+        "4": "Social media integration"
+      }
     },
     "ecommerce": {
       "title": "E-commerce",
-      "description": "Sell online with ease"
+      "description": "Complete online sales solution",
+      "features": {
+        "1": "Unlimited product catalog",
+        "2": "Secure multi-gateway payment",
+        "3": "Real-time stock management",
+        "4": "Admin dashboard"
+      }
     },
-    "apps": {
-      "title": "Applications",
-      "description": "Custom business solutions"
+    "app": {
+      "title": "Application",
+      "description": "Custom solutions",
+      "features": {
+        "1": "Custom web application",
+        "2": "Custom API integration",
+        "3": "Dedicated database",
+        "4": "Complete documentation"
+      }
+    },
+    "popular": "Popular",
+    "seo": {
+      "title": "SEO Optimization",
+      "why": {
+        "title": "Why is SEO important?",
+        "description": "Search Engine Optimization (SEO) is crucial for your website's visibility. We optimize every aspect to improve your ranking in search results.",
+        "points": {
+          "1": "Optimized technical structure",
+          "2": "Search engine optimized content",
+          "3": "Image and media optimization"
+        }
+      },
+      "services": {
+        "title": "Our SEO services",
+        "list": {
+          "1": "Complete SEO audit",
+          "2": "Keyword optimization",
+          "3": "Performance tracking"
+        }
+      }
+    },
+    "maintenance": {
+      "title": "Maintenance & Support",
+      "items": {
+        "1": {
+          "icon": "i-heroicons-wrench-screwdriver",
+          "title": "Technical maintenance",
+          "description": "Regular updates, bug fixes and performance optimizations"
+        },
+        "2": {
+          "icon": "i-heroicons-shield-check",
+          "title": "Security",
+          "description": "Threat protection, regular backups and monitoring"
+        },
+        "3": {
+          "icon": "i-heroicons-chart-bar",
+          "title": "Analytics",
+          "description": "Performance tracking and user data analysis"
+        }
+      }
+    },
+    "client": {
+      "title": "Client Support",
+      "approach": {
+        "title": "Our approach",
+        "description": "We support you at every stage of your project, from conception to launch and beyond.",
+        "points": {
+          "1": "Regular follow-up meetings",
+          "2": "Responsive technical support",
+          "3": "Usage training"
+        }
+      },
+      "commitments": {
+        "title": "Our commitments",
+        "list": {
+          "1": "Response within 24h",
+          "2": "Custom solutions",
+          "3": "Continuous evolution"
+        }
+      }
+    },
+    "cta": {
+      "title": "Ready to start your project?",
+      "description": "Contact us to discuss your project and discover how we can help you bring it to life.",
+      "button": "Contact us",
+      "startProject": "Start your project",
+      "requestQuote": "Request a quote"
     }
   },
   "contact": {
     "title": "Contact",
+    "subtitle": "Have a project? Let's talk! Fill out the form below and we'll get back to you as soon as possible.",
     "form": {
-      "name": "Name",
+      "name": "Full Name",
       "email": "Email",
-      "message": "Message",
-      "send": "Send"
+      "subject": "Project Type",
+      "subjectPlaceholder": "Select an option",
+      "subjectOptions": {
+        "site-vitrine": "Showcase Website",
+        "e-commerce": "E-commerce Website",
+        "application": "Business Application",
+        "autre": "Other"
+      },
+      "message": "Your Message",
+      "send": "Send Message",
+      "sending": "Sending..."
     },
-    "success": "Message sent successfully!",
+    "contactInfo": {
+      "email": "Email",
+      "phone": "Phone",
+      "address": "Address",
+      "addressLine1": "123 Web Agency Street",
+      "addressLine2": "75000 Paris"
+    },
+    "success": "Your message has been sent successfully!",
     "error": "An error occurred. Please try again."
   },
   "footer": {
     "rights": "All rights reserved",
     "privacy": "Privacy Policy",
-    "terms": "Terms of Use"
+    "terms": "Terms of Use",
+    "description": "Innovative web solutions to bring your digital projects to life.",
+    "services": "Services",
+    "servicesList": {
+      "websites": "Showcase Websites",
+      "ecommerce": "E-commerce",
+      "webapps": "Web Applications",
+      "seo": "SEO & Maintenance"
+    },
+    "quickLinks": "Quick Links",
+    "quickLinksList": {
+      "about": "About",
+      "portfolio": "Portfolio",
+      "pricing": "Pricing",
+      "contact": "Contact"
+    },
+    "contact": "Contact",
+    "location": "Paris, France",
+    "copyright": "© {year} Frizbee. All rights reserved.",
+    "legal": "Legal Notice"
+  },
+  "portfolio": {
+    "title": "Our Portfolio",
+    "subtitle": "Discover our web projects that transform ideas into exceptional digital experiences",
+    "projects": {
+      "view": "View Project",
+      "egenr": {
+        "description": "An innovative content generation platform that revolutionizes text creation with artificial intelligence."
+      },
+      "quoiRegarder": {
+        "description": "An intuitive application that helps users discover their next movie or series through personalized recommendations."
+      }
+    },
+    "cta": {
+      "title": "Ready to start your project?",
+      "description": "Transform your vision into reality with Frizbee. Contact us to discuss your project.",
+      "button": "Start Your Project"
+    }
+  },
+  "pricing": {
+    "title": "Our Pricing",
+    "subtitle": "Solutions tailored to all your needs, with personalized support",
+    "plans": {
+      "perSite": "site",
+      "popular": "Popular",
+      "startProject": "Start Your Project",
+      "requestQuote": "Request a Quote",
+      "showcase": {
+        "title": "Showcase Website",
+        "description": "Perfect for presenting your business",
+        "features": [
+          "Modern and responsive design",
+          "Up to 5 custom pages",
+          "Contact form",
+          "Basic SEO optimization",
+          "1 year hosting included"
+        ]
+      },
+      "ecommerce": {
+        "title": "E-commerce",
+        "description": "Complete online selling solution",
+        "features": [
+          "Unlimited product catalog",
+          "Secure payment system",
+          "Stock management",
+          "Admin dashboard",
+          "Usage training included"
+        ]
+      },
+      "app": {
+        "title": "Application",
+        "description": "Custom solutions",
+        "price": "On quote",
+        "features": [
+          "Custom web application",
+          "Custom API integration",
+          "Dedicated database",
+          "Maintenance and support",
+          "Complete documentation"
+        ]
+      }
+    },
+    "features": {
+      "title": "All our projects include",
+      "items": [
+        {
+          "title": "Technical Support",
+          "description": "Dedicated assistance for 1 year"
+        },
+        {
+          "title": "Customization",
+          "description": "Design adapted to your brand"
+        },
+        {
+          "title": "Performance",
+          "description": "Optimized and fast websites"
+        },
+        {
+          "title": "Security",
+          "description": "Protection against threats"
+        }
+      ]
+    },
+    "cta": {
+      "title": "Have questions?",
+      "description": "Our team is here to help you choose the solution that best fits your needs.",
+      "button": "Contact Us"
+    }
   }
 }

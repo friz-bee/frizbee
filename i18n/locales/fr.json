@@ -3,33 +3,40 @@
     "home": "Accueil",
     "about": "À propos",
     "services": "Services",
-    "portfolio": "Réalisations",
+    "portfolio": "Portfolio",
     "pricing": "Tarifs",
-    "contact": "Nous contacter"
+    "contact": "Contact"
   },
   "home": {
     "hero": {
-      "title": "Donnez vie à vos projets web",
-      "subtitle": "Frizbee conçoit des solutions web sur mesure pour votre entreprise. Sites vitrines, e-commerce et applications bureautiques.",
-      "cta": "Démarrer un projet"
+      "title": "Créons ensemble votre projet digital",
+      "highlight": "projet digital",
+      "subtitle": "Des solutions web innovantes et performantes pour votre entreprise",
+      "cta": "Démarrer un projet",
+      "about": {
+        "cta": "En savoir plus sur nous"
+      },
+      "services": {
+        "pricing": "Voir les tarifs"
+      }
     },
     "about": {
       "cta": "En savoir plus sur Frizbee"
     },
     "services": {
-      "title": "Pourquoi choisir Frizbee ?",
+      "title": "Nos Services",
       "pricing": "Voir les tarifs",
       "expertise": {
-        "title": "Expertise technique",
-        "description": "Des solutions modernes et performantes adaptées à vos besoins"
+        "title": "Expertise Technique",
+        "description": "Une équipe de développeurs expérimentés pour des solutions robustes et performantes"
       },
       "support": {
-        "title": "Accompagnement",
-        "description": "Un suivi personnalisé tout au long de votre projet"
+        "title": "Support Premium",
+        "description": "Un accompagnement personnalisé tout au long de votre projet"
       },
       "performance": {
-        "title": "Performance",
-        "description": "Des sites rapides et optimisés pour le référencement"
+        "title": "Performance Optimale",
+        "description": "Des solutions optimisées pour une expérience utilisateur exceptionnelle"
       }
     },
     "portfolio": {
@@ -43,37 +50,295 @@
   },
   "about": {
     "title": "À propos de nous",
-    "description": "Nous sommes une équipe passionnée de développeurs web et designers créatifs."
+    "description": "Nous sommes une équipe passionnée de développeurs web et designers créatifs.",
+    "hero": {
+      "title": "À propos",
+      "subtitle": "Une équipe passionnée qui transforme vos idées en solutions digitales innovantes"
+    },
+    "mission": {
+      "title": "Notre Histoire",
+      "description1": "Fondée par des passionnés du développement web, Frizbee est née de la volonté de créer des solutions digitales innovantes et accessibles. Notre approche unique combine créativité et expertise technique pour donner vie à vos projets.",
+      "description2": "Nous croyons en la force de l'innovation et de la collaboration. Notre équipe jeune et dynamique apporte une vision fraîche et moderne à chaque projet, tout en garantissant des résultats professionnels et performants."
+    },
+    "values": {
+      "title": "Nos Valeurs",
+      "innovation": {
+        "title": "Innovation",
+        "description": "Nous repoussons constamment les limites pour créer des solutions digitales innovantes et performantes."
+      },
+      "collaboration": {
+        "title": "Collaboration",
+        "description": "Nous travaillons en étroite collaboration avec nos clients pour garantir des résultats qui dépassent leurs attentes."
+      },
+      "excellence": {
+        "title": "Excellence",
+        "description": "Nous nous engageons à fournir des solutions de qualité supérieure, en accordant une attention particulière aux détails."
+      }
+    },
+    "team": {
+      "title": "Notre Équipe",
+      "vision": {
+        "title": "Notre Vision",
+        "description": "Une équipe jeune et dynamique passionnée par l'innovation et le développement web."
+      },
+      "mission": {
+        "title": "Notre Mission",
+        "description": "Créer des solutions digitales innovantes qui transforment vos idées en réalité."
+      }
+    },
+    "cta": {
+      "title": "Prêt à démarrer votre projet ?",
+      "description": "Contactez-nous pour discuter de votre projet et découvrir comment nous pouvons vous aider à le concrétiser.",
+      "button": "Contactez-nous"
+    }
   },
   "services": {
     "title": "Nos Services",
-    "web": {
-      "title": "Sites Vitrines",
-      "description": "Présentez votre entreprise avec élégance"
+    "hero": {
+      "title": "Nos Services",
+      "subtitle": "Des solutions web complètes et professionnelles pour répondre à tous vos besoins"
+    },
+    "showcase": {
+      "title": "Site Vitrine",
+      "description": "Présentez votre entreprise avec élégance",
+      "features": {
+        "1": "Design moderne et responsive",
+        "2": "Optimisation SEO intégrée",
+        "3": "Formulaire de contact personnalisé",
+        "4": "Intégration des réseaux sociaux"
+      }
     },
     "ecommerce": {
       "title": "E-commerce",
-      "description": "Vendez en ligne en toute simplicité"
+      "description": "Solution complète de vente en ligne",
+      "features": {
+        "1": "Catalogue de produits illimité",
+        "2": "Paiement sécurisé multi-gateway",
+        "3": "Gestion des stocks en temps réel",
+        "4": "Tableau de bord administrateur"
+      }
     },
-    "apps": {
-      "title": "Applications",
-      "description": "Solutions bureautiques sur mesure"
+    "app": {
+      "title": "Application",
+      "description": "Solutions sur mesure",
+      "features": {
+        "1": "Application web personnalisée",
+        "2": "Intégration d'API sur mesure",
+        "3": "Base de données dédiée",
+        "4": "Documentation complète"
+      }
+    },
+    "popular": "Populaire",
+    "seo": {
+      "title": "Optimisation SEO",
+      "why": {
+        "title": "Pourquoi le SEO est-il important ?",
+        "description": "Le référencement naturel (SEO) est crucial pour la visibilité de votre site. Nous optimisons chaque aspect pour améliorer votre positionnement dans les résultats de recherche.",
+        "points": {
+          "1": "Structure technique optimisée",
+          "2": "Contenu optimisé pour les moteurs",
+          "3": "Optimisation des images et médias"
+        }
+      },
+      "services": {
+        "title": "Nos services SEO",
+        "list": {
+          "1": "Audit SEO complet",
+          "2": "Optimisation des mots-clés",
+          "3": "Suivi des performances"
+        }
+      }
+    },
+    "maintenance": {
+      "title": "Maintenance & Support",
+      "items": {
+        "1": {
+          "icon": "i-heroicons-wrench-screwdriver",
+          "title": "Maintenance technique",
+          "description": "Mises à jour régulières, corrections de bugs et optimisations des performances"
+        },
+        "2": {
+          "icon": "i-heroicons-shield-check",
+          "title": "Sécurité",
+          "description": "Protection contre les menaces, sauvegardes régulières et surveillance"
+        },
+        "3": {
+          "icon": "i-heroicons-chart-bar",
+          "title": "Analytique",
+          "description": "Suivi des performances et analyse des données utilisateurs"
+        }
+      }
+    },
+    "client": {
+      "title": "Accompagnement Client",
+      "approach": {
+        "title": "Notre approche",
+        "description": "Nous vous accompagnons à chaque étape de votre projet, de la conception au lancement et au-delà.",
+        "points": {
+          "1": "Points réguliers de suivi",
+          "2": "Support technique réactif",
+          "3": "Formation à l'utilisation"
+        }
+      },
+      "commitments": {
+        "title": "Nos engagements",
+        "list": {
+          "1": "Réponse sous 24h",
+          "2": "Solutions personnalisées",
+          "3": "Évolution continue"
+        }
+      }
+    },
+    "cta": {
+      "title": "Prêt à démarrer votre projet ?",
+      "description": "Contactez-nous pour discuter de votre projet et découvrir comment nous pouvons vous aider à le concrétiser.",
+      "button": "Contactez-nous",
+      "startProject": "Démarrer votre projet",
+      "requestQuote": "Demander un devis"
     }
   },
   "contact": {
-    "title": "Contact",
+    "title": "Nous contacter",
+    "subtitle": "Vous avez un projet ? Parlons-en ! Remplissez le formulaire ci-dessous et nous vous répondrons dans les plus brefs délais.",
     "form": {
-      "name": "Nom",
+      "name": "Nom complet",
       "email": "Email",
-      "message": "Message",
-      "send": "Envoyer"
+      "subject": "Type de projet",
+      "subjectPlaceholder": "Sélectionnez une option",
+      "subjectOptions": {
+        "site-vitrine": "Site Vitrine",
+        "e-commerce": "Site E-commerce",
+        "application": "Application Bureautique",
+        "autre": "Autre"
+      },
+      "message": "Votre message",
+      "send": "Envoyer le message",
+      "sending": "Envoi en cours..."
     },
-    "success": "Message envoyé avec succès !",
+    "contactInfo": {
+      "email": "Email",
+      "phone": "Téléphone",
+      "address": "Adresse",
+      "addressLine1": "123 rue de la Web Agency",
+      "addressLine2": "75000 Paris"
+    },
+    "success": "Votre message a été envoyé avec succès !",
     "error": "Une erreur est survenue. Veuillez réessayer."
   },
   "footer": {
     "rights": "Tous droits réservés",
     "privacy": "Politique de confidentialité",
-    "terms": "Conditions d'utilisation"
+    "terms": "Conditions d'utilisation",
+    "description": "Solutions web innovantes pour donner vie à vos projets digitaux.",
+    "services": "Services",
+    "servicesList": {
+      "websites": "Sites Vitrines",
+      "ecommerce": "E-commerce",
+      "webapps": "Applications Web",
+      "seo": "SEO & Maintenance"
+    },
+    "quickLinks": "Liens rapides",
+    "quickLinksList": {
+      "about": "À propos",
+      "portfolio": "Portfolio",
+      "pricing": "Tarifs",
+      "contact": "Contact"
+    },
+    "contact": "Contact",
+    "location": "Paris, France",
+    "copyright": "© {year} Frizbee. Tous droits réservés.",
+    "legal": "Mentions légales"
+  },
+  "portfolio": {
+    "title": "Nos Réalisations",
+    "subtitle": "Découvrez nos projets web qui transforment les idées en expériences numériques exceptionnelles",
+    "projects": {
+      "view": "Voir le projet",
+      "egenr": {
+        "description": "Une plateforme innovante de génération de contenu qui révolutionne la création de textes avec l'intelligence artificielle."
+      },
+      "quoiRegarder": {
+        "description": "Une application intuitive qui aide les utilisateurs à découvrir leur prochain film ou série grâce à des recommandations personnalisées."
+      }
+    },
+    "cta": {
+      "title": "Prêt à lancer votre projet ?",
+      "description": "Transformez votre vision en réalité avec Frizbee. Contactez-nous pour discuter de votre projet.",
+      "button": "Démarrer votre projet"
+    }
+  },
+  "pricing": {
+    "title": "Nos Tarifs",
+    "subtitle": "Des solutions adaptées à tous vos besoins, avec un accompagnement personnalisé",
+    "plans": {
+      "perSite": "site",
+      "popular": "Populaire",
+      "startProject": "Démarrer votre projet",
+      "requestQuote": "Demander un devis",
+      "showcase": {
+        "title": "Site Vitrine",
+        "description": "Idéal pour présenter votre activité",
+        "features": [
+          "Design moderne et responsive",
+          "Jusqu'à 5 pages personnalisées",
+          "Formulaire de contact",
+          "Optimisation SEO de base",
+          "Hébergement 1 an inclus"
+        ]
+      },
+      "ecommerce": {
+        "title": "E-commerce",
+        "description": "Solution complète de vente en ligne",
+        "features": [
+          "Catalogue produits illimité",
+          "Système de paiement sécurisé",
+          "Gestion des stocks",
+          "Dashboard administrateur",
+          "Formation utilisation incluse"
+        ]
+      },
+      "app": {
+        "title": "Application",
+        "description": "Solutions sur mesure",
+        "price": "Sur devis",
+        "features": [
+          "Application web personnalisée",
+          "Intégration API sur mesure",
+          "Base de données dédiée",
+          "Maintenance et support",
+          "Documentation technique complète"
+        ]
+      }
+    },
+    "features": {
+      "title": "Tous nos projets incluent",
+      "items": [
+        {
+          "title": "Support technique",
+          "description": "Assistance dédiée pendant 1 an"
+        },
+        {
+          "title": "Personnalisation",
+          "description": "Design adapté à votre image"
+        },
+        {
+          "title": "Performance",
+          "description": "Sites optimisés et rapides"
+        },
+        {
+          "title": "Sécurité",
+          "description": "Protection contre les menaces"
+        },
+        {
+          "title": "Mises à jour",
+          "description": "Actualisations régulières"
+        }
+      ]
+    },
+    "cta": {
+      "title": "Vous avez des questions ?",
+      "description": "Notre équipe est là pour vous aider à choisir la solution la plus adaptée à vos besoins.",
+      "button": "Contactez-nous"
+    }
   }
 }

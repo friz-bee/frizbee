@@ -1,37 +1,21 @@
 <template>
-  <div class="min-h-screen bg-gradient-to-br from-black via-black to-gray-900">
+  <div class="min-h-screen bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900">
     <!-- Hero Section -->
-    <section class="relative pt-20 pb-16">
-      <div class="container mx-auto px-4">
-        <h1 class="text-4xl md:text-5xl font-bold mb-6 text-center">
-          À propos de
-          <span class="text-transparent bg-clip-text bg-gradient-to-r from-green-400 to-blue-500"
-          >Frizbee</span
-          >
-        </h1>
-        <p class="text-xl text-gray-300 text-center max-w-3xl mx-auto">
-          Une équipe passionnée qui transforme vos idées en solutions digitales innovantes
-        </p>
-      </div>
-    </section>
+    <HeroSection :title="$t('about.hero.title')" :subtitle="$t('about.hero.subtitle')" />
 
     <!-- Notre Histoire -->
-    <section class="py-16">
+    <section id="mission" class="py-16">
       <div class="container mx-auto px-4">
         <div class="max-w-4xl mx-auto">
-          <h2 class="text-3xl font-bold mb-8 text-center">Notre Histoire</h2>
+          <h2 class="text-3xl font-bold mb-8 text-center">{{ $t('about.mission.title') }}</h2>
           <div
             class="bg-gradient-to-br from-gray-900 to-black rounded-2xl p-8 border border-gray-800"
           >
             <p class="text-gray-300 mb-6">
-              Fondée par des passionnés du développement web, Frizbee est née de la volonté de créer
-              des solutions digitales innovantes et accessibles. Notre approche unique combine
-              créativité et expertise technique pour donner vie à vos projets.
+              {{ $t('about.mission.description1') }}
             </p>
             <p class="text-gray-300">
-              Nous croyons en la force de l'innovation et de la collaboration. Notre équipe jeune et
-              dynamique apporte une vision fraîche et moderne à chaque projet, tout en garantissant
-              des résultats professionnels et performants.
+              {{ $t('about.mission.description2') }}
             </p>
           </div>
         </div>
@@ -39,15 +23,15 @@
     </section>
 
     <!-- Nos Valeurs -->
-    <section class="py-16">
+    <section id="values" class="py-16 border-t border-slate-700">
       <div class="container mx-auto px-4">
-        <h2 class="text-3xl font-bold mb-12 text-center">Nos Valeurs</h2>
+        <h2 class="text-3xl font-bold mb-12 text-center">{{ $t('about.values.title') }}</h2>
         <div class="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
           <div
             class="bg-gradient-to-br from-gray-900 to-black rounded-2xl p-8 border border-gray-800 text-center"
           >
             <div
-              class="w-16 h-16 bg-green-400 rounded-xl mb-6 mx-auto flex items-center justify-center"
+              class="w-16 h-16 bg-primary-500 rounded-xl mb-6 mx-auto flex items-center justify-center"
             >
               <svg class="w-8 h-8 text-black" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path
@@ -58,17 +42,16 @@
                 ></path>
               </svg>
             </div>
-            <h3 class="text-xl font-bold mb-4">Innovation</h3>
+            <h3 class="text-xl font-bold mb-4">{{ $t('about.values.innovation.title') }}</h3>
             <p class="text-gray-400">
-              Nous repoussons constamment les limites pour créer des solutions digitales innovantes
-              et performantes.
+              {{ $t('about.values.innovation.description') }}
             </p>
           </div>
           <div
             class="bg-gradient-to-br from-gray-900 to-black rounded-2xl p-8 border border-gray-800 text-center"
           >
             <div
-              class="w-16 h-16 bg-green-400 rounded-xl mb-6 mx-auto flex items-center justify-center"
+              class="w-16 h-16 bg-primary-500 rounded-xl mb-6 mx-auto flex items-center justify-center"
             >
               <svg class="w-8 h-8 text-black" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path
@@ -79,17 +62,16 @@
                 ></path>
               </svg>
             </div>
-            <h3 class="text-xl font-bold mb-4">Collaboration</h3>
+            <h3 class="text-xl font-bold mb-4">{{ $t('about.values.collaboration.title') }}</h3>
             <p class="text-gray-400">
-              Nous travaillons en étroite collaboration avec nos clients pour garantir des résultats
-              qui dépassent leurs attentes.
+              {{ $t('about.values.collaboration.description') }}
             </p>
           </div>
           <div
             class="bg-gradient-to-br from-gray-900 to-black rounded-2xl p-8 border border-gray-800 text-center"
           >
             <div
-              class="w-16 h-16 bg-green-400 rounded-xl mb-6 mx-auto flex items-center justify-center"
+              class="w-16 h-16 bg-primary-500 rounded-xl mb-6 mx-auto flex items-center justify-center"
             >
               <svg class="w-8 h-8 text-black" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path
@@ -100,10 +82,9 @@
                 ></path>
               </svg>
             </div>
-            <h3 class="text-xl font-bold mb-4">Excellence</h3>
+            <h3 class="text-xl font-bold mb-4">{{ $t('about.values.excellence.title') }}</h3>
             <p class="text-gray-400">
-              Nous nous engageons à fournir des solutions de qualité supérieure, en accordant une
-              attention particulière aux détails.
+              {{ $t('about.values.excellence.description') }}
             </p>
           </div>
         </div>
@@ -111,19 +92,21 @@
     </section>
 
     <!-- Notre Équipe -->
-    <section class="py-16">
+    <section id="team" class="py-16 border-t border-slate-700">
       <div class="container mx-auto px-4">
-        <h2 class="text-3xl font-bold mb-12 text-center">Notre Équipe</h2>
+        <h2 class="text-3xl font-bold mb-12 text-center">{{ $t('about.team.title') }}</h2>
         <div class="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
           <div
             class="bg-gradient-to-br from-gray-900 to-black rounded-2xl p-8 border border-gray-800"
           >
             <div class="flex items-center gap-6">
-              <div class="w-24 h-24 bg-gradient-to-br from-green-400 to-blue-500 rounded-xl"></div>
+              <div
+                class="w-24 h-24 bg-gradient-to-br from-primary-500 to-secondary-500 rounded-xl"
+              ></div>
               <div>
-                <h3 class="text-xl font-bold mb-2">Notre Vision</h3>
+                <h3 class="text-xl font-bold mb-2">{{ $t('about.team.vision.title') }}</h3>
                 <p class="text-gray-400">
-                  Une équipe jeune et dynamique passionnée par l'innovation et le développement web.
+                  {{ $t('about.team.vision.description') }}
                 </p>
               </div>
             </div>
@@ -132,11 +115,13 @@
             class="bg-gradient-to-br from-gray-900 to-black rounded-2xl p-8 border border-gray-800"
           >
             <div class="flex items-center gap-6">
-              <div class="w-24 h-24 bg-gradient-to-br from-blue-500 to-green-400 rounded-xl"></div>
+              <div
+                class="w-24 h-24 bg-gradient-to-br from-secondary-500 to-primary-500 rounded-xl"
+              ></div>
               <div>
-                <h3 class="text-xl font-bold mb-2">Notre Mission</h3>
+                <h3 class="text-xl font-bold mb-2">{{ $t('about.team.mission.title') }}</h3>
                 <p class="text-gray-400">
-                  Créer des solutions digitales innovantes qui transforment vos idées en réalité.
+                  {{ $t('about.team.mission.description') }}
                 </p>
               </div>
             </div>
@@ -146,20 +131,23 @@
     </section>
 
     <!-- CTA Section -->
-    <section class="py-16">
+    <section class="py-16 border-t border-slate-700">
       <div class="container mx-auto px-4 text-center">
-        <h2 class="text-3xl font-bold mb-4">Prêt à démarrer votre projet ?</h2>
+        <h2 class="text-3xl font-bold mb-4">{{ $t('about.cta.title') }}</h2>
         <p class="text-gray-400 mb-8 max-w-2xl mx-auto">
-          Contactez-nous pour discuter de votre projet et découvrir comment nous pouvons vous aider
-          à le concrétiser.
+          {{ $t('about.cta.description') }}
         </p>
-        <NuxtLink
-          to="/contact"
-          class="inline-block bg-green-400 text-black px-8 py-4 rounded-full text-lg font-semibold hover:bg-green-300 transition"
+        <ULink
+          :to="localePath('/contact')"
+          class="inline-block bg-gradient-to-r from-primary-400 to-primary-500 text-black px-8 py-4 rounded-full text-lg font-semibold hover:from-primary-500 hover:to-primary-600 transition-all duration-300 shadow-md hover:shadow-xl transform hover:scale-105"
         >
-          Contactez-nous
-        </NuxtLink>
+          {{ $t('about.cta.button') }}
+        </ULink>
       </div>
     </section>
   </div>
 </template>
+
+<script setup lang="ts">
+const localePath = useLocalePath()
+</script>

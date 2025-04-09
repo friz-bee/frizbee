@@ -40,6 +40,6 @@ export default defineNuxtConfig({
       redirectOn: 'root',
       alwaysRedirect: true,
       fallbackLocale: 'fr'
-    },
+    }
   }
 })
