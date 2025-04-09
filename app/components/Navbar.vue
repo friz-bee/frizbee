@@ -113,7 +113,7 @@ const flyAway = () => {
   isFlying.value = true
   setTimeout(() => {
     isFlying.value = false
-  }, 5_000)
+  }, 10_000)
 }
 
 const navLinks = [
