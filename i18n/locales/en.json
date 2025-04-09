@@ -43,6 +43,69 @@
       "title": "Our Values"
     }
   },
+  "admin": {
+    "dashboard": {
+      "stats": {
+        "languages": "Languages",
+        "languagesDescription": "Active languages",
+        "projects": "Projects",
+        "projectsDescription": "Total projects",
+        "translations": "Translations",
+        "translationsDescription": "Total translations"
+      },
+      "title": "Dashboard"
+    },
+    "languages": {
+      "actions": "Actions",
+      "add": "Add Language",
+      "cancel": "Cancel",
+      "code": "Code",
+      "default": "Default",
+      "delete": "Delete",
+      "edit": "Edit",
+      "empty": "No languages found",
+      "error": {
+        "delete": "Error deleting language",
+        "fetch": "Error fetching languages",
+        "save": "Error saving language",
+        "uniqueCode": "Language code already exists",
+        "unknown": "An unknown error occurred"
+      },
+      "modalDescription": "Add or edit a language",
+      "name": "Name",
+      "save": "Save",
+      "setDefault": "Set as default language",
+      "success": {
+        "createMessage": "Language created successfully",
+        "delete": "Language deleted",
+        "deleteMessage": "Language deleted successfully",
+        "save": "Language saved",
+        "updateMessage": "Language updated successfully"
+      },
+      "title": "Languages"
+    },
+    "login": {
+      "email": "Email",
+      "emailPlaceholder": "Enter your email",
+      "errors": {
+        "emailRequired": "Email is required",
+        "invalidEmail": "Invalid email address",
+        "passwordMinLength": "Password must be at least 8 characters",
+        "passwordRequired": "Password is required"
+      },
+      "hidePassword": "Hide password",
+      "password": "Password",
+      "passwordPlaceholder": "Enter your password",
+      "showPassword": "Show password",
+      "submit": "Login",
+      "title": "Admin Login"
+    },
+    "sidebar": {
+      "dashboard": "Dashboard",
+      "languages": "Languages",
+      "logout": "Logout"
+    }
+  },
   "contact": {
     "contactInfo": {
       "address": "Address",
@@ -95,8 +158,8 @@
     },
     "subtitle": "Have a project? Let's talk! Fill out the form below and we'll get back to you as soon as possible.",
     "success": {
-      "title": "Message sent",
-      "description": "We will get back to you as soon as possible."
+      "description": "We will get back to you as soon as possible.",
+      "title": "Message sent"
     },
     "title": "Contact Us"
   },
