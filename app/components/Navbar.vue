@@ -9,7 +9,13 @@
           :to="localePath('/')"
           class="text-xl md:text-2xl font-bold flex items-center gap-2 relative z-10 text-white"
         >
-          <img src="/img/logo.png" alt="Frizbee Logo" class="w-7 h-7 md:w-8 md:h-8" />
+          <img
+            src="/img/logo.png"
+            alt="Frizbee Logo"
+            class="w-7 h-7 md:w-8 md:h-8 transition-all duration-300 cursor-pointer"
+            :class="{ 'animate-fly-away': isFlying }"
+            @click.prevent="flyAway"
+          />
           <span class="bg-gradient-to-r from-amber-400 to-amber-500 bg-clip-text text-transparent"
           >FRIZBEE</span
           >
@@ -101,6 +107,14 @@
 <script setup lang="ts">
 const localePath = useLocalePath()
 const isMenuOpen = ref(false)
+const isFlying = ref(false)
+
+const flyAway = () => {
+  isFlying.value = true
+  setTimeout(() => {
+    isFlying.value = false
+  }, 5_000)
+}
 
 const navLinks = [
   { to: '/', key: 'home' },
@@ -110,3 +124,54 @@ const navLinks = [
   { to: '/about', key: 'about' }
 ]
 </script>
+
+<style scoped>
+@keyframes hover {
+  0%,
+  100% {
+    transform: translate(0, 2px) rotate(2deg) scale(1.02);
+  }
+  50% {
+    transform: translate(0, -2px) rotate(-2deg) scale(0.98);
+  }
+}
+
+@keyframes fly-away {
+  0% {
+    transform: translate(0, 0) rotate(0deg);
+    animation: hover 0.2s ease-in infinite;
+  }
+  15% {
+    transform: translate(25vw, 15vh) rotate(15deg);
+  }
+  30% {
+    transform: translate(45vw, 35vh) rotate(-10deg);
+  }
+  45% {
+    transform: translate(65vw, 25vh) rotate(20deg);
+  }
+  60% {
+    transform: translate(40vw, 45vh) rotate(-15deg);
+  }
+  75% {
+    transform: translate(20vw, 35vh) rotate(10deg);
+  }
+  90% {
+    transform: translate(10vw, 15vh) rotate(-5deg);
+  }
+  100% {
+    transform: translate(0, 0) rotate(0deg);
+  }
+}
+
+.animate-fly-away {
+  animation: fly-away 10s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+.animate-fly-away::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  animation: hover 0.2s ease-in infinite;
+}
+</style>
