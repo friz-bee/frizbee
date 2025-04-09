@@ -11,29 +11,23 @@
           <!-- Left side content -->
           <div class="z-10">
             <h1 class="text-6xl md:text-7xl font-bold mb-6 leading-tight">
-              Donnez vie à<br />
-              <span
-                class="text-transparent bg-clip-text bg-gradient-to-r from-green-400 to-blue-500"
-              >
-                vos projets web
-              </span>
+              {{ $t('home.hero.title') }}
             </h1>
             <p class="text-xl text-gray-300 mb-8 max-w-lg">
-              Frizbee conçoit des solutions web sur mesure pour votre entreprise. Sites vitrines,
-              e-commerce et applications bureautiques.
+              {{ $t('home.hero.subtitle') }}
             </p>
             <div class="flex gap-4">
               <NuxtLink
                 to="/contact"
                 class="bg-green-400 text-black px-8 py-4 rounded-full text-lg font-semibold hover:bg-green-300 transition"
               >
-                Démarrer un projet
+                {{ $t('home.hero.cta') }}
               </NuxtLink>
               <NuxtLink
                 to="/services"
                 class="border-2 border-green-400 text-green-400 px-8 py-4 rounded-full text-lg font-semibold hover:bg-green-400 hover:text-black transition"
               >
-                Nos services
+                {{ $t('nav.services') }}
               </NuxtLink>
             </div>
             <div class="mt-8">
@@ -41,7 +35,7 @@
                 to="/a-propos"
                 class="inline-flex items-center text-green-400 hover:text-green-300 transition"
               >
-                En savoir plus sur Frizbee
+                {{ $t('home.about.cta') }}
                 <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path
                     stroke-linecap="round"
@@ -84,37 +78,37 @@
             <div
               class="bg-gradient-to-br from-pink-500/10 to-pink-500/20 p-6 rounded-xl backdrop-blur-sm border border-pink-500/20 transform hover:rotate-0 transition-transform duration-300 w-full md:w-[340px] -rotate-6"
             >
-              <h3 class="text-xl font-bold mb-2">Sites Vitrines</h3>
-              <p class="text-gray-300">Présentez votre entreprise avec élégance</p>
+              <h3 class="text-xl font-bold mb-2">{{ $t('services.web.title') }}</h3>
+              <p class="text-gray-300">{{ $t('services.web.description') }}</p>
               <NuxtLink
                 to="/tarifs"
                 class="inline-block text-pink-400 mt-4 hover:text-pink-300 transition-colors"
               >
-                Voir les tarifs →
+                {{ $t('home.services.pricing') }} →
               </NuxtLink>
             </div>
             <div
               class="bg-gradient-to-br from-green-500/10 to-green-500/20 p-6 rounded-xl backdrop-blur-sm border border-green-500/20 transform hover:rotate-0 transition-transform duration-300 w-full md:w-[340px] rotate-3"
             >
-              <h3 class="text-xl font-bold mb-2">E-commerce</h3>
-              <p class="text-gray-300">Vendez en ligne en toute simplicité</p>
+              <h3 class="text-xl font-bold mb-2">{{ $t('services.ecommerce.title') }}</h3>
+              <p class="text-gray-300">{{ $t('services.ecommerce.description') }}</p>
               <NuxtLink
                 to="/tarifs"
                 class="inline-block text-green-400 mt-4 hover:text-green-300 transition-colors"
               >
-                Voir les tarifs →
+                {{ $t('home.services.pricing') }} →
               </NuxtLink>
             </div>
             <div
               class="bg-gradient-to-br from-blue-500/10 to-blue-500/20 p-6 rounded-xl backdrop-blur-sm border border-blue-500/20 transform hover:rotate-0 transition-transform duration-300 w-full md:w-[340px] rotate-6"
             >
-              <h3 class="text-xl font-bold mb-2">Applications</h3>
-              <p class="text-gray-300">Solutions bureautiques sur mesure</p>
+              <h3 class="text-xl font-bold mb-2">{{ $t('services.apps.title') }}</h3>
+              <p class="text-gray-300">{{ $t('services.apps.description') }}</p>
               <NuxtLink
                 to="/tarifs"
                 class="inline-block text-blue-400 mt-4 hover:text-blue-300 transition-colors"
               >
-                Voir les tarifs →
+                {{ $t('home.services.pricing') }} →
               </NuxtLink>
             </div>
           </div>
@@ -125,7 +119,7 @@
     <!-- Services Section -->
     <section class="py-20 relative">
       <div class="container mx-auto px-4">
-        <h2 class="text-4xl font-bold mb-12 text-center">Pourquoi choisir Frizbee ?</h2>
+        <h2 class="text-4xl font-bold mb-12 text-center">{{ $t('home.services.title') }}</h2>
         <div class="grid md:grid-cols-3 gap-8">
           <div class="p-6 rounded-xl bg-gray-900/50 backdrop-blur-sm">
             <div class="w-12 h-12 bg-green-400 rounded-lg mb-4 flex items-center justify-center">
@@ -138,9 +132,9 @@
                 ></path>
               </svg>
             </div>
-            <h3 class="text-xl font-bold mb-2">Expertise technique</h3>
+            <h3 class="text-xl font-bold mb-2">{{ $t('home.services.expertise.title') }}</h3>
             <p class="text-gray-400">
-              Des solutions modernes et performantes adaptées à vos besoins
+              {{ $t('home.services.expertise.description') }}
             </p>
           </div>
           <div class="p-6 rounded-xl bg-gray-900/50 backdrop-blur-sm">
@@ -154,8 +148,8 @@
                 ></path>
               </svg>
             </div>
-            <h3 class="text-xl font-bold mb-2">Accompagnement</h3>
-            <p class="text-gray-400">Un suivi personnalisé tout au long de votre projet</p>
+            <h3 class="text-xl font-bold mb-2">{{ $t('home.services.support.title') }}</h3>
+            <p class="text-gray-400">{{ $t('home.services.support.description') }}</p>
           </div>
           <div class="p-6 rounded-xl bg-gray-900/50 backdrop-blur-sm">
             <div class="w-12 h-12 bg-green-400 rounded-lg mb-4 flex items-center justify-center">
@@ -168,8 +162,8 @@
                 ></path>
               </svg>
             </div>
-            <h3 class="text-xl font-bold mb-2">Performance</h3>
-            <p class="text-gray-400">Des sites rapides et optimisés pour le référencement</p>
+            <h3 class="text-xl font-bold mb-2">{{ $t('home.services.performance.title') }}</h3>
+            <p class="text-gray-400">{{ $t('home.services.performance.description') }}</p>
           </div>
         </div>
       </div>
@@ -178,7 +172,7 @@
 </template>
 
 <script setup lang="ts">
-// Configuration de la page d'accueil
+import { useI18n } from 'vue-i18n'
 </script>
 
 <style scoped>

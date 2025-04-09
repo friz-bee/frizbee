@@ -1,0 +1,79 @@
+{
+  "nav": {
+    "home": "Home",
+    "about": "About",
+    "services": "Services",
+    "portfolio": "Portfolio",
+    "pricing": "Pricing",
+    "contact": "Contact Us"
+  },
+  "home": {
+    "hero": {
+      "title": "Bring your web projects to life",
+      "subtitle": "Frizbee designs custom web solutions for your business. Showcase websites, e-commerce and business applications.",
+      "cta": "Start a project"
+    },
+    "about": {
+      "cta": "Learn more about Frizbee"
+    },
+    "services": {
+      "title": "Why choose Frizbee?",
+      "pricing": "View pricing",
+      "expertise": {
+        "title": "Technical expertise",
+        "description": "Modern and efficient solutions tailored to your needs"
+      },
+      "support": {
+        "title": "Support",
+        "description": "Personalized follow-up throughout your project"
+      },
+      "performance": {
+        "title": "Performance",
+        "description": "Fast websites optimized for search engines"
+      }
+    },
+    "portfolio": {
+      "title": "Our Work",
+      "subtitle": "Discover our latest projects"
+    },
+    "contact": {
+      "title": "Contact Us",
+      "subtitle": "Let's discuss your project"
+    }
+  },
+  "about": {
+    "title": "About Us",
+    "description": "We are a team of passionate web developers and creative designers."
+  },
+  "services": {
+    "title": "Our Services",
+    "web": {
+      "title": "Showcase Websites",
+      "description": "Present your business with elegance"
+    },
+    "ecommerce": {
+      "title": "E-commerce",
+      "description": "Sell online with ease"
+    },
+    "apps": {
+      "title": "Applications",
+      "description": "Custom business solutions"
+    }
+  },
+  "contact": {
+    "title": "Contact",
+    "form": {
+      "name": "Name",
+      "email": "Email",
+      "message": "Message",
+      "send": "Send"
+    },
+    "success": "Message sent successfully!",
+    "error": "An error occurred. Please try again."
+  },
+  "footer": {
+    "rights": "All rights reserved",
+    "privacy": "Privacy Policy",
+    "terms": "Terms of Use"
+  }
+}

@@ -1,0 +1,79 @@
+{
+  "nav": {
+    "home": "Accueil",
+    "about": "À propos",
+    "services": "Services",
+    "portfolio": "Réalisations",
+    "pricing": "Tarifs",
+    "contact": "Nous contacter"
+  },
+  "home": {
+    "hero": {
+      "title": "Donnez vie à vos projets web",
+      "subtitle": "Frizbee conçoit des solutions web sur mesure pour votre entreprise. Sites vitrines, e-commerce et applications bureautiques.",
+      "cta": "Démarrer un projet"
+    },
+    "about": {
+      "cta": "En savoir plus sur Frizbee"
+    },
+    "services": {
+      "title": "Pourquoi choisir Frizbee ?",
+      "pricing": "Voir les tarifs",
+      "expertise": {
+        "title": "Expertise technique",
+        "description": "Des solutions modernes et performantes adaptées à vos besoins"
+      },
+      "support": {
+        "title": "Accompagnement",
+        "description": "Un suivi personnalisé tout au long de votre projet"
+      },
+      "performance": {
+        "title": "Performance",
+        "description": "Des sites rapides et optimisés pour le référencement"
+      }
+    },
+    "portfolio": {
+      "title": "Nos Réalisations",
+      "subtitle": "Découvrez nos derniers projets"
+    },
+    "contact": {
+      "title": "Contactez-nous",
+      "subtitle": "Discutons de votre projet"
+    }
+  },
+  "about": {
+    "title": "À propos de nous",
+    "description": "Nous sommes une équipe passionnée de développeurs web et designers créatifs."
+  },
+  "services": {
+    "title": "Nos Services",
+    "web": {
+      "title": "Sites Vitrines",
+      "description": "Présentez votre entreprise avec élégance"
+    },
+    "ecommerce": {
+      "title": "E-commerce",
+      "description": "Vendez en ligne en toute simplicité"
+    },
+    "apps": {
+      "title": "Applications",
+      "description": "Solutions bureautiques sur mesure"
+    }
+  },
+  "contact": {
+    "title": "Contact",
+    "form": {
+      "name": "Nom",
+      "email": "Email",
+      "message": "Message",
+      "send": "Envoyer"
+    },
+    "success": "Message envoyé avec succès !",
+    "error": "Une erreur est survenue. Veuillez réessayer."
+  },
+  "footer": {
+    "rights": "Tous droits réservés",
+    "privacy": "Politique de confidentialité",
+    "terms": "Conditions d'utilisation"
+  }
+}
