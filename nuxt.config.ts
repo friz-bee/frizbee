@@ -4,11 +4,11 @@ export default defineNuxtConfig({
 
   modules: ['@nuxt/ui', '@nuxt/eslint', '@nuxtjs/i18n'],
 
-  css: ['~/assets/css/main.css'],
-
-  future: {
-    compatibilityVersion: 4
+  imports: {
+    dirs: ['composables/**']
   },
+
+  css: ['~/assets/css/main.css'],
 
   compatibilityDate: '2024-11-27',
 
@@ -41,5 +41,11 @@ export default defineNuxtConfig({
       alwaysRedirect: true,
       fallbackLocale: 'fr'
     }
+  },
+
+  colorMode: {
+    preference: 'dark',
+    fallback: 'dark',
+    classSuffix: ''
   }
 })

@@ -42,5 +42,11 @@ export default withNuxt(
       '@typescript-eslint/no-unused-vars': 'off',
       '@typescript-eslint/no-explicit-any': 'off'
     }
+  },
+  {
+    files: ['cypress/support/e2e.ts'],
+    rules: {
+      '@typescript-eslint/no-namespace': 'off'
+    }
   }
 )

@@ -1,3 +1,5 @@
 node_modules
 tsconfig.json
 .nuxt
+cypress/support/commands.ts
+cypress/support/e2e.ts

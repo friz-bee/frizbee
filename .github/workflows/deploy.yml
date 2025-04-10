@@ -13,8 +13,16 @@ permissions:
 
 jobs:
   # Job de construction et push de l'image Docker
+  cypress-tests:
+    uses: ./.github/workflows/cypress.yml
+    secrets: inherit
+
   build-and-push:
+    needs: cypress-tests
     runs-on: ubuntu-latest # L'environnement d'exécution est une machine Ubuntu
+    permissions:
+      contents: read
+      packages: write
 
     steps:
       # Étape 1 : Checkout du code depuis le dépôt
