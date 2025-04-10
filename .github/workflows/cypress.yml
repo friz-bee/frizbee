@@ -58,6 +58,7 @@ jobs:
           NUXT_ADMIN_USERNAME: admin
           NUXT_JWT_SECRET: test-jwt-secret
         run: |
+          npx prisma generate
           npx prisma migrate deploy
           npx prisma db seed
 
