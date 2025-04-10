@@ -1,35 +1,45 @@
 name: Cypress Tests
 
+# Trigger workflow on:
+# - Push to main branch (except version tags)
+# - Pull requests to main branch
 on:
   push:
     branches: [main]
     tags-ignore: ['v*.*.*']
   pull_request:
     branches: [main]
+  workflow_call: {} # Allow this workflow to be called from other workflows
 
 jobs:
+  # Run Cypress end-to-end tests
   cypress-run:
     runs-on: ubuntu-latest
     steps:
+      # Step 1: Checkout the repository
       - name: Checkout
         uses: actions/checkout@v4
 
+      # Step 2: Install pnpm package manager
       - name: Install pnpm
         uses: pnpm/action-setup@v4
         with:
           version: 8
 
+      # Step 3: Setup Node.js environment
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
           node-version: '20'
           cache: 'pnpm'
 
+      # Step 4: Get pnpm store path for caching
       - name: Get pnpm store directory
         shell: bash
         run: |
           echo "STORE_PATH=$(pnpm store path --silent)" >> $GITHUB_ENV
 
+      # Step 5: Cache pnpm dependencies and Cypress binary
       - name: Cache pnpm and Cypress
         uses: actions/cache@v4
         with:
@@ -40,12 +50,15 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-pnpm-cypress-
 
+      # Step 6: Install project dependencies
       - name: Install dependencies
         run: pnpm install
 
+      # Step 7: Install Cypress binary
       - name: Install Cypress
         run: pnpm cypress install
 
+      # Step 8: Run Cypress tests
       - name: Cypress run
         uses: cypress-io/github-action@v6
         with:
@@ -55,6 +68,7 @@ jobs:
           record: false
           config-file: cypress.config.ts
 
+      # Step 9: Upload test results as artifacts
       - name: Upload test results
         uses: actions/upload-artifact@v4
         if: always()
