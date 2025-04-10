@@ -37,7 +37,7 @@ COPY --from=build /app/prisma ./prisma
 COPY --from=build /app/.output/ ./
 
 # Install prisma and tsx globally
-RUN npm install -g prisma tsx
+RUN npm install -g prisma
 
 EXPOSE 3000
 
