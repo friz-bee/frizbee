@@ -86,6 +86,6 @@ jobs:
         with:
           name: cypress-results
           path: | # Upload test artifacts
-            cypress/videos     # Test recordings
-            cypress/screenshots  # Screenshots of failures
-            cypress/results     # Test results
+            cypress/videos
+            cypress/screenshots
+            cypress/results
