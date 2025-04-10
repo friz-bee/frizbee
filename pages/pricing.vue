@@ -20,7 +20,7 @@
               </div>
             </div>
             <div class="p-8">
-              <ul class="space-y-4">
+              <ul class="gap-y-4">
                 <li v-for="i in [1, 2, 3, 4]" :key="i" class="flex items-start gap-3">
                   <svg
                     class="w-6 h-6 text-green-400 flex-shrink-0"
@@ -67,7 +67,7 @@
               </div>
             </div>
             <div class="p-8">
-              <ul class="space-y-4">
+              <ul class="gap-y-4">
                 <li v-for="i in [1, 2, 3, 4]" :key="i" class="flex items-start gap-3">
                   <svg
                     class="w-6 h-6 text-pink-400 flex-shrink-0"
@@ -108,7 +108,7 @@
               </div>
             </div>
             <div class="p-8">
-              <ul class="space-y-4">
+              <ul class="gap-y-4">
                 <li v-for="i in [1, 2, 3, 4]" :key="i" class="flex items-start gap-3">
                   <svg
                     class="w-6 h-6 text-blue-400 flex-shrink-0"

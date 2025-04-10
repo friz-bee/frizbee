@@ -10,7 +10,7 @@
           <p class="text-slate-300 mb-4">
             {{ $t('footer.description') }}
           </p>
-          <div class="flex space-x-4">
+          <div class="flex gap-4">
             <a href="#" class="text-slate-400 hover:text-amber-400 transition-all duration-300">
               <UIcon name="i-simple-icons-linkedin" class="w-6 h-6" />
             </a>
@@ -26,7 +26,7 @@
         <!-- Services -->
         <div class="col-span-1">
           <h3 class="text-lg font-semibold mb-4 text-white">{{ $t('footer.services') }}</h3>
-          <ul class="space-y-2">
+          <ul class="gap-y-2">
             <li>
               <ULink
                 :to="localePath('/services')"
@@ -61,7 +61,7 @@
         <!-- Liens rapides -->
         <div class="col-span-1">
           <h3 class="text-lg font-semibold mb-4 text-white">{{ $t('footer.quickLinks') }}</h3>
-          <ul class="space-y-2">
+          <ul class="gap-y-2">
             <li>
               <ULink
                 :to="localePath('/about')"
@@ -96,7 +96,7 @@
         <!-- Contact -->
         <div class="col-span-1">
           <h3 class="text-lg font-semibold mb-4 text-white">{{ $t('footer.contact') }}</h3>
-          <ul class="space-y-2">
+          <ul class="gap-y-2">
             <li class="flex items-center gap-2 text-slate-300">
               <UIcon name="i-heroicons-envelope" class="w-5 h-5 text-amber-400" />
               <a

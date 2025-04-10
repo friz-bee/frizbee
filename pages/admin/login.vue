@@ -8,7 +8,7 @@
       </template>
 
       <UForm :schema="schema" :state="state" @submit="handleLogin">
-        <div class="space-y-4 flex flex-col gap-4">
+        <div class="gap-y-4 flex flex-col gap-4">
           <UFormField :label="$t('admin.login.email')" name="email">
             <UInput
               v-model="state.email"

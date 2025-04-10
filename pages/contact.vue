@@ -21,7 +21,7 @@
               </h2>
             </template>
 
-            <UForm :schema="schema" :state="state" class="space-y-6" @submit="handleSubmit">
+            <UForm :schema="schema" :state="state" class="gap-y-6" @submit="handleSubmit">
               <div class="grid md:grid-cols-2 gap-6">
                 <FormInput
                   v-model="state.name"

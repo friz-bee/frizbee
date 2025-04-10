@@ -92,16 +92,10 @@ jobs:
             docker stop frizbee || true
             docker rm frizbee || true
 
-            echo "📋 Copying Prisma files..."
-            docker create --name temp_container ghcr.io/${{ github.repository_owner }}/frizbee:latest
-            docker cp temp_container:/app/prisma ./prisma
-            docker rm temp_container
-
             echo "🔍 Checking database connection..."
             docker run --rm \
               --network frizbee_webnet \
               --env-file ~/frizbee/.env \
-              -v $(pwd)/prisma:/app/prisma \
               ghcr.io/${{ github.repository_owner }}/frizbee:latest \
               npx prisma db push --skip-generate
 
@@ -109,7 +103,6 @@ jobs:
             docker run --rm \
               --network frizbee_webnet \
               --env-file ~/frizbee/.env \
-              -v $(pwd)/prisma:/app/prisma \
               ghcr.io/${{ github.repository_owner }}/frizbee:latest \
               npx prisma migrate deploy
 
@@ -117,12 +110,8 @@ jobs:
             docker run --rm \
               --network frizbee_webnet \
               --env-file ~/frizbee/.env \
-              -v $(pwd)/prisma:/app/prisma \
               ghcr.io/${{ github.repository_owner }}/frizbee:latest \
               npx prisma db seed
-
-            echo "🧹 Cleaning up..."
-            rm -rf ./prisma
 
             echo "🚀 Starting the new container..."
             docker run -d \

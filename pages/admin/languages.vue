@@ -81,7 +81,7 @@
       @close="closeModal"
     >
       <template #body>
-        <UForm :state="form" class="space-y-4">
+        <UForm :state="form" class="gap-y-4">
           <UFormField label="Name" name="name">
             <UInput v-model="form.name" />
           </UFormField>

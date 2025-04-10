@@ -18,7 +18,7 @@
               </div>
             </template>
             <div class="p-6">
-              <ul class="space-y-4">
+              <ul class="gap-y-4">
                 <li v-for="i in [1, 2, 3, 4]" :key="i" class="flex items-start gap-3">
                   <UIcon
                     name="i-heroicons-check-circle"
@@ -54,7 +54,7 @@
               </div>
             </template>
             <div class="p-6">
-              <ul class="space-y-4">
+              <ul class="gap-y-4">
                 <li v-for="i in [1, 2, 3, 4]" :key="i" class="flex items-start gap-3">
                   <UIcon
                     name="i-heroicons-check-circle"
@@ -80,7 +80,7 @@
               </div>
             </template>
             <div class="p-6">
-              <ul class="space-y-4">
+              <ul class="gap-y-4">
                 <li v-for="i in [1, 2, 3, 4]" :key="i" class="flex items-start gap-3">
                   <UIcon
                     name="i-heroicons-check-circle"
@@ -112,7 +112,7 @@
                 <p class="text-gray-300 mb-6">
                   {{ $t('services.seo.why.description') }}
                 </p>
-                <ul class="space-y-3">
+                <ul class="gap-y-3">
                   <li v-for="i in [1, 2, 3]" :key="i" class="flex items-start gap-3">
                     <UIcon
                       name="i-heroicons-check-circle"
@@ -124,7 +124,7 @@
               </div>
               <div>
                 <h3 class="text-xl font-bold mb-4">{{ $t('services.seo.services.title') }}</h3>
-                <ul class="space-y-3">
+                <ul class="gap-y-3">
                   <li v-for="i in [1, 2, 3]" :key="i" class="flex items-start gap-3">
                     <UIcon
                       name="i-heroicons-check-circle"
@@ -183,7 +183,7 @@
                 <p class="text-gray-300 mb-6">
                   {{ $t('services.client.approach.description') }}
                 </p>
-                <ul class="space-y-3">
+                <ul class="gap-y-3">
                   <li v-for="i in [1, 2, 3]" :key="i" class="flex items-start gap-3">
                     <UIcon
                       name="i-heroicons-check-circle"
@@ -197,7 +197,7 @@
                 <h3 class="text-xl font-bold mb-4">
                   {{ $t('services.client.commitments.title') }}
                 </h3>
-                <ul class="space-y-3">
+                <ul class="gap-y-3">
                   <li v-for="i in [1, 2, 3]" :key="i" class="flex items-start gap-3">
                     <UIcon
                       name="i-heroicons-check-circle"
