@@ -7,81 +7,79 @@
     <section id="contact-form" class="py-20 relative">
       <div class="container mx-auto px-4">
         <div class="max-w-3xl mx-auto">
-          <form class="space-y-6" @submit.prevent="handleSubmit">
-            <div class="grid md:grid-cols-2 gap-6">
-              <div>
-                <label for="name" class="block text-sm font-medium text-gray-300 mb-2">{{
-                  $t('contact.form.name')
-                }}</label>
-                <input
-                  id="name"
-                  v-model="form.name"
-                  type="text"
+          <UCard
+            class="mb-16"
+            :ui="{
+              base: 'bg-slate-800',
+              header: 'bg-slate-800',
+              body: 'bg-slate-800'
+            }"
+          >
+            <template #header>
+              <h2 class="text-2xl font-bold text-center text-white">
+                {{ $t('contact.form.title') }}
+              </h2>
+            </template>
+
+            <UForm :schema="schema" :state="state" class="space-y-6" @submit="handleSubmit">
+              <div class="grid md:grid-cols-2 gap-6">
+                <FormInput
+                  v-model="state.name"
+                  :label="$t('contact.form.name')"
+                  :placeholder="$t('contact.form.namePlaceholder')"
+                  name="name"
                   required
-                  class="w-full px-4 py-3 rounded-lg bg-gray-900 border border-gray-800 text-white focus:ring-2 focus:ring-primary-400 focus:border-transparent"
-                />
-              </div>
-              <div>
-                <label for="email" class="block text-sm font-medium text-gray-300 mb-2">{{
-                  $t('contact.form.email')
-                }}</label>
-                <input
-                  id="email"
-                  v-model="form.email"
+                >
+                  <template #leading>
+                    <UIcon name="i-lucide:pencil" class="size-6" />
+                  </template>
+                </FormInput>
+
+                <FormInput
+                  v-model="state.email"
+                  :label="$t('contact.form.email')"
+                  :placeholder="$t('contact.form.emailPlaceholder')"
+                  name="email"
                   type="email"
                   required
-                  class="w-full px-4 py-3 rounded-lg bg-gray-900 border border-gray-800 text-white focus:ring-2 focus:ring-primary-400 focus:border-transparent"
-                />
+                >
+                  <template #leading>
+                    <UIcon name="i-lucide:at-sign" class="size-6" />
+                  </template>
+                </FormInput>
               </div>
-            </div>
 
-            <div>
-              <label for="subject" class="block text-sm font-medium text-gray-300 mb-2">{{
-                $t('contact.form.subject')
-              }}</label>
-              <select
-                id="subject"
-                v-model="form.subject"
+              <FormSelect
+                v-model="state.subject"
+                :label="$t('contact.form.subject')"
+                name="subject"
+                :items="subjectOptions"
+                :placeholder="$t('contact.form.subjectPlaceholder')"
                 required
-                class="w-full px-4 py-3 rounded-lg bg-gray-900 border border-gray-800 text-white focus:ring-2 focus:ring-primary-400 focus:border-transparent"
-              >
-                <option value="">{{ $t('contact.form.subjectPlaceholder') }}</option>
-                <option value="site-vitrine">
-                  {{ $t('contact.form.subjectOptions.site-vitrine') }}
-                </option>
-                <option value="e-commerce">
-                  {{ $t('contact.form.subjectOptions.e-commerce') }}
-                </option>
-                <option value="application">
-                  {{ $t('contact.form.subjectOptions.application') }}
-                </option>
-                <option value="autre">{{ $t('contact.form.subjectOptions.autre') }}</option>
-              </select>
-            </div>
+              />
 
-            <div>
-              <label for="message" class="block text-sm font-medium text-gray-300 mb-2">{{
-                $t('contact.form.message')
-              }}</label>
-              <textarea
-                id="message"
-                v-model="form.message"
-                rows="6"
+              <FormTextarea
+                v-model="state.message"
+                :label="$t('contact.form.message')"
+                name="message"
+                :placeholder="$t('contact.form.messagePlaceholder')"
                 required
-                class="w-full px-4 py-3 rounded-lg bg-gray-900 border border-gray-800 text-white focus:ring-2 focus:ring-primary-400 focus:border-transparent"
-              ></textarea>
-            </div>
+                :rows="5"
+              />
 
-            <div class="flex justify-end">
-              <button
-                type="submit"
-                class="bg-gradient-to-r from-primary-400 to-primary-500 text-black px-8 py-4 rounded-full text-lg font-semibold hover:from-primary-500 hover:to-primary-600 transition-all duration-300 shadow-md hover:shadow-xl transform hover:scale-105"
-                :disabled="isSubmitting"
-              >
-                {{ isSubmitting ? $t('contact.form.sending') : $t('contact.form.send') }}
-              </button>
-            </div>
-          </form>
+              <div class="flex justify-end">
+                <UButton
+                  type="submit"
+                  color="primary"
+                  :loading="isSubmitting"
+                  :disabled="isSubmitting"
+                  size="lg"
+                >
+                  {{ isSubmitting ? $t('contact.form.sending') : $t('contact.form.send') }}
+                </UButton>
+              </div>
+            </UForm>
+          </UCard>
 
           <div class="mt-16 grid md:grid-cols-3 gap-8">
             <div class="text-center">
@@ -185,33 +183,35 @@
 
 <script setup lang="ts">
 const { t } = useI18n()
-
-const form = ref({
-  name: '',
-  email: '',
-  subject: '',
-  message: ''
-})
-
+const { state, setState, schema, reset } = useContactForm()
 const isSubmitting = ref(false)
+const { success, error } = useNotifications()
+
+const subjectOptions = [
+  { label: t('contact.form.subjectOptions.site-vitrine'), value: 'site-vitrine' },
+  { label: t('contact.form.subjectOptions.e-commerce'), value: 'e-commerce' },
+  { label: t('contact.form.subjectOptions.application'), value: 'application' },
+  { label: t('contact.form.subjectOptions.autre'), value: 'autre' }
+]
 
 const handleSubmit = async () => {
-  isSubmitting.value = true
+  console.log('handleSubmit')
+  try {
+    isSubmitting.value = true
 
-  // Simuler l'envoi du formulaire
-  await new Promise((resolve) => setTimeout(resolve, 1000))
+    // Simuler l'envoi du formulaire
+    await new Promise((resolve) => setTimeout(resolve, 1000))
 
-  // Réinitialiser le formulaire
-  form.value = {
-    name: '',
-    email: '',
-    subject: '',
-    message: ''
+    // Réinitialiser le formulaire
+    reset()
+
+    // Afficher un message de succès
+    success(t('contact.success.title'), t('contact.success.description'))
+  } catch (errors) {
+    console.error(errors)
+    error(t('contact.form.errors.validation'), t('contact.form.errors.general'))
+  } finally {
+    isSubmitting.value = false
   }
-
-  isSubmitting.value = false
-
-  // Afficher un message de succès
-  alert(t('contact.success'))
 }
 </script>
