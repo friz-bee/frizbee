@@ -1,92 +1,45 @@
-name: Build, Push and Deploy Docker Image
+name: Deploy to Server
 
-# Déclenche la pipeline lorsqu'un tag correspondant à 'v*.*.*' est poussé
+# Trigger this workflow when the build workflow completes successfully
 on:
-  push:
-    tags:
-      - 'v*.*.*'
-
-# Définition des permissions nécessaires pour les actions
-permissions:
-  contents: read
-  packages: write
+  workflow_run:
+    workflows: ['Build and Push Docker Image']
+    types:
+      - completed
 
 jobs:
-  # Job de construction et push de l'image Docker
-  cypress-tests:
-    uses: ./.github/workflows/cypress.yml
-    secrets: inherit
-
-  build-and-push:
-    needs: cypress-tests
-    runs-on: ubuntu-latest # L'environnement d'exécution est une machine Ubuntu
-    permissions:
-      contents: read
-      packages: write
-
-    steps:
-      # Étape 1 : Checkout du code depuis le dépôt
-      - name: Checkout code
-        uses: actions/checkout@v4.2.2
-
-      # Étape 2 : Configuration de Docker Buildx pour la construction multi-architecture
-      - name: Set up Docker Buildx
-        uses: docker/setup-buildx-action@v3.9.0
-
-      # Étape 3 : Connexion au registre de conteneurs GitHub (ghcr.io)
-      - name: Log in to GitHub Container Registry
-        uses: docker/login-action@v3.3.0
-        with:
-          registry: ghcr.io
-          username: ${{ github.actor }}
-          password: ${{ secrets.GITHUB_TOKEN }}
-
-      # Étape 4 : Extraction du nom du tag pour l'utiliser comme version de l'image Docker
-      - name: Extract tag name
-        run: echo "TAG_NAME=${GITHUB_REF#refs/tags/}" >> $GITHUB_ENV
-
-      # Étape 5 : Construction et push de l'image Docker vers le registre
-      - name: Build and push Docker image
-        uses: docker/build-push-action@v6.13.0
-        with:
-          context: .
-          push: true
-          tags: |
-            ghcr.io/${{ github.repository_owner }}/frizbee:${{ env.TAG_NAME }}
-            ghcr.io/${{ github.repository_owner }}/frizbee:latest
-
-  # Job de déploiement sur le serveur
+  # Deploy the application to the production server
   deploy:
-    needs: build-and-push # Ce job dépend du job précédent (build-and-push)
+    # Only run if the build workflow was successful
+    if: ${{ github.event.workflow_run.conclusion == 'success' }}
     runs-on: ubuntu-latest
     steps:
-      # Étape 1 : Connexion au serveur et déploiement de l'image Docker
+      # Connect to the server and deploy the new Docker container
       - name: Connect to server and deploy
-        uses: appleboy/ssh-action@v1.2.0 # Utilisation de l'action SSH pour se connecter au serveur et exécuter des commandes
+        uses: appleboy/ssh-action@v1.2.0
         with:
-          # Variables d'environnement pour la connexion SSH
-          # Ces secrets doivent être configurés dans les paramètres du dépôt GitHub
+          # SSH connection details (configured in repository secrets)
           host: ${{ secrets.SERVER_HOST }}
           username: ${{ secrets.SERVER_USER }}
           key: ${{ secrets.SERVER_SSH_KEY }}
-          # Connexion au registre Docker GitHub Container Registry avec un token sécurisé.
-          # Téléchargement de la dernière version de l'image Docker depuis le registre.
-          # Arrêt et suppression de l'ancien conteneur si présent pour éviter les conflits.
-          # Lancement d'un nouveau conteneur avec l'image téléchargée et configuration des ports et variables d'environnement.
-          # Connexion du conteneur au réseau Docker spécifique pour la communication entre services.
+          # Deployment script
           script: |
             set -e  # Exit the script if any command fails
 
+            # Step 1: Log in to GitHub Container Registry
             echo "🔄 Connecting to the server..."
             echo "${{ secrets.GHCR_PAT }}" | docker login ghcr.io -u ${{ github.actor }} --password-stdin
 
+            # Step 2: Pull the latest Docker image
             echo "📥 Pulling the latest Docker image..."
             docker pull ghcr.io/${{ github.repository_owner }}/frizbee:latest
 
+            # Step 3: Stop and remove the existing container
             echo "🛑 Stopping and removing the existing container..."
             docker stop frizbee || true
             docker rm frizbee || true
 
+            # Step 4: Start a new container with the latest image
             echo "🚀 Starting the new container..."
             docker run -d \
               --name frizbee \
@@ -95,6 +48,7 @@ jobs:
               --env-file ~/frizbee/.env \
               ghcr.io/${{ github.repository_owner }}/frizbee:latest
 
+            # Step 5: Connect the container to the Docker network
             echo "🔗 Connecting the container to the network..."
             docker network connect frizbee_webnet frizbee
 
