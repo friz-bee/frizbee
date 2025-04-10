@@ -92,12 +92,19 @@ jobs:
             docker stop frizbee || true
             docker rm frizbee || true
 
-            echo "🔄 Resetting database..."
+            echo "🔄 Running database migrations..."
             docker run --rm \
               --network frizbee_webnet \
               --env-file ~/frizbee/.env \
               ghcr.io/${{ github.repository_owner }}/frizbee:latest \
-              npx prisma migrate reset --force
+              npx prisma migrate deploy
+
+            echo "🌱 Seeding the database..."
+            docker run --rm \
+              --network frizbee_webnet \
+              --env-file ~/frizbee/.env \
+              ghcr.io/${{ github.repository_owner }}/frizbee:latest \
+              npx prisma db seed
 
             echo "🚀 Starting the new container..."
             docker run -d \
