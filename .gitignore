@@ -32,4 +32,3 @@ postgres/
 
 # prisma
 generated/prisma
-prisma/migrations/
