@@ -1,25 +1,31 @@
 name: Build, Push and Deploy Docker Image
 
+# Déclenche la pipeline lorsqu'un tag correspondant à 'v*.*.*' est poussé
 on:
   push:
     tags:
       - 'v*.*.*'
 
+# Définition des permissions nécessaires pour les actions
 permissions:
   contents: read
   packages: write
 
 jobs:
+  # Job de construction et push de l'image Docker
   build-and-push:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-latest # L'environnement d'exécution est une machine Ubuntu
 
     steps:
+      # Étape 1 : Checkout du code depuis le dépôt
       - name: Checkout code
         uses: actions/checkout@v4.2.2
 
+      # Étape 2 : Configuration de Docker Buildx pour la construction multi-architecture
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v3.9.0
 
+      # Étape 3 : Connexion au registre de conteneurs GitHub (ghcr.io)
       - name: Log in to GitHub Container Registry
         uses: docker/login-action@v3.3.0
         with:
@@ -27,9 +33,11 @@ jobs:
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}
 
+      # Étape 4 : Extraction du nom du tag pour l'utiliser comme version de l'image Docker
       - name: Extract tag name
         run: echo "TAG_NAME=${GITHUB_REF#refs/tags/}" >> $GITHUB_ENV
 
+      # Étape 5 : Construction et push de l'image Docker vers le registre
       - name: Build and push Docker image
         uses: docker/build-push-action@v6.13.0
         with:
@@ -39,16 +47,25 @@ jobs:
             ghcr.io/${{ github.repository_owner }}/frizbee:${{ env.TAG_NAME }}
             ghcr.io/${{ github.repository_owner }}/frizbee:latest
 
+  # Job de déploiement sur le serveur
   deploy:
-    needs: build-and-push
+    needs: build-and-push # Ce job dépend du job précédent (build-and-push)
     runs-on: ubuntu-latest
     steps:
+      # Étape 1 : Connexion au serveur et déploiement de l'image Docker
       - name: Connect to server and deploy
-        uses: appleboy/ssh-action@v1.2.0
+        uses: appleboy/ssh-action@v1.2.0 # Utilisation de l'action SSH pour se connecter au serveur et exécuter des commandes
         with:
+          # Variables d'environnement pour la connexion SSH
+          # Ces secrets doivent être configurés dans les paramètres du dépôt GitHub
           host: ${{ secrets.SERVER_HOST }}
           username: ${{ secrets.SERVER_USER }}
           key: ${{ secrets.SERVER_SSH_KEY }}
+          # Connexion au registre Docker GitHub Container Registry avec un token sécurisé.
+          # Téléchargement de la dernière version de l'image Docker depuis le registre.
+          # Arrêt et suppression de l'ancien conteneur si présent pour éviter les conflits.
+          # Lancement d'un nouveau conteneur avec l'image téléchargée et configuration des ports et variables d'environnement.
+          # Connexion du conteneur au réseau Docker spécifique pour la communication entre services.
           script: |
             set -e  # Exit the script if any command fails
 
