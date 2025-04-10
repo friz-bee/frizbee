@@ -1,12 +1,11 @@
 name: Cypress Tests
 
 # Trigger workflow on:
-# - Push to main branch (except version tags)
+# - Push to any branch except main and develop
 # - Pull requests to main branch
 on:
   push:
-    branches: [main]
-    tags-ignore: ['v*.*.*'] # Ignore version tags to avoid duplicate runs
+    branches-ignore: [main, develop]
   pull_request:
     branches: [main]
   workflow_call: {} # Allow this workflow to be called from other workflows

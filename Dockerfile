@@ -9,11 +9,19 @@ COPY package.json package-lock.json ./
 # Install dependencies
 RUN npm ci
 
+# Copy Prisma schema
+COPY prisma ./prisma
+
+# Generate Prisma client without migrations
+RUN npx prisma generate --no-engine
+
 # Copy the entire project
 COPY . ./
 
 # Increase memory limit to prevent heap out-of-memory crashes
 ENV NODE_OPTIONS="--max-old-space-size=4096"
+ENV NODE_ENV=production
+ENV PRISMA_SKIP_POSTINSTALL_GENERATE=true
 
 # Build the project
 RUN npm run build
