@@ -43,6 +43,69 @@
       "title": "Nos Valeurs"
     }
   },
+  "admin": {
+    "dashboard": {
+      "stats": {
+        "languages": "Langues",
+        "languagesDescription": "Langues actives",
+        "projects": "Projets",
+        "projectsDescription": "Total des projets",
+        "translations": "Traductions",
+        "translationsDescription": "Total des traductions"
+      },
+      "title": "Tableau de bord"
+    },
+    "languages": {
+      "actions": "Actions",
+      "add": "Ajouter une langue",
+      "cancel": "Annuler",
+      "code": "Code",
+      "default": "Par défaut",
+      "delete": "Supprimer",
+      "edit": "Modifier",
+      "empty": "Aucune langue trouvée",
+      "error": {
+        "delete": "Erreur lors de la suppression de la langue",
+        "fetch": "Erreur lors de la récupération des langues",
+        "save": "Erreur lors de l'enregistrement de la langue",
+        "uniqueCode": "Le code de langue existe déjà",
+        "unknown": "Une erreur inconnue est survenue"
+      },
+      "modalDescription": "Ajouter ou modifier une langue",
+      "name": "Nom",
+      "save": "Enregistrer",
+      "setDefault": "Définir comme langue par défaut",
+      "success": {
+        "createMessage": "Langue créée avec succès",
+        "delete": "Langue supprimée",
+        "deleteMessage": "Langue supprimée avec succès",
+        "save": "Langue enregistrée",
+        "updateMessage": "Langue mise à jour avec succès"
+      },
+      "title": "Langues"
+    },
+    "login": {
+      "email": "Email",
+      "emailPlaceholder": "Entrez votre email",
+      "errors": {
+        "emailRequired": "L'email est requis",
+        "invalidEmail": "Adresse email invalide",
+        "passwordMinLength": "Le mot de passe doit contenir au moins 8 caractères",
+        "passwordRequired": "Le mot de passe est requis"
+      },
+      "hidePassword": "Masquer le mot de passe",
+      "password": "Mot de passe",
+      "passwordPlaceholder": "Entrez votre mot de passe",
+      "showPassword": "Afficher le mot de passe",
+      "submit": "Se connecter",
+      "title": "Connexion Admin"
+    },
+    "sidebar": {
+      "dashboard": "Tableau de bord",
+      "languages": "Langues",
+      "logout": "Déconnexion"
+    }
+  },
   "contact": {
     "contactInfo": {
       "address": "Adresse",
@@ -95,8 +158,8 @@
     },
     "subtitle": "Vous avez un projet ? Parlons-en ! Remplissez le formulaire ci-dessous et nous vous répondrons dans les plus brefs délais.",
     "success": {
-      "title": "Message envoyé",
-      "description": "Nous vous répondrons dans les plus brefs délais."
+      "description": "Nous vous répondrons dans les plus brefs délais.",
+      "title": "Message envoyé"
     },
     "title": "Contactez-nous"
   },

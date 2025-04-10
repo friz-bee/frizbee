@@ -42,13 +42,15 @@ describe('Contact Page', () => {
 
   it('should show validation errors for empty form submission', () => {
     // Test name field
-    cy.get(SELECTORS.nameInput).click().blur()
+    cy.get(SELECTORS.nameInput).click()
+    cy.get(SELECTORS.nameInput).blur()
     helpers.getFormField('Nom complet').within(() => {
       cy.contains('Le nom est requis').should('be.visible')
     })
 
     // Test email field
-    cy.get(SELECTORS.emailInput).click().blur()
+    cy.get(SELECTORS.emailInput).click()
+    cy.get(SELECTORS.emailInput).blur()
     helpers.getFormField('Email').within(() => {
       cy.contains('L\'email est requis').should('be.visible')
     })

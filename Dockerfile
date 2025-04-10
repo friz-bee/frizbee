@@ -3,13 +3,11 @@
 FROM node:22-alpine AS build
 WORKDIR /app
 
-RUN corepack enable
-
 # Copy dependency files
-COPY package.json pnpm-lock.yaml .npmrc ./
+COPY package.json package-lock.json ./
 
 # Install dependencies
-RUN pnpm i
+RUN npm ci
 
 # Copy the entire project
 COPY . ./
@@ -18,7 +16,7 @@ COPY . ./
 ENV NODE_OPTIONS="--max-old-space-size=4096"
 
 # Build the project
-RUN pnpm run build
+RUN npm run build
 
 # Build Stage 2
 
@@ -27,7 +25,6 @@ WORKDIR /app
 
 # Only `.output` folder is needed from the build stage
 COPY --from=build /app/.output/ ./
-
 
 EXPOSE 3000
 
