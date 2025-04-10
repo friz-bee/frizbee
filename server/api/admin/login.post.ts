@@ -1,8 +1,6 @@
-import { PrismaClient } from '@prisma/client'
 import { compare } from 'bcryptjs'
 import jwt from 'jsonwebtoken'
-
-const prisma = new PrismaClient()
+import prisma from '~/lib/prisma'
 
 export default defineEventHandler(async (event) => {
   const body = await readBody(event)

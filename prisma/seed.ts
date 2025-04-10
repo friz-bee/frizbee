@@ -10,11 +10,18 @@ async function seedLanguages () {
   ]
 
   for (const language of languages) {
-    await prisma.language.upsert({
-      where: { code: language.code },
-      update: language,
-      create: language
+    const existingLanguage = await prisma.language.findUnique({
+      where: { code: language.code }
     })
+
+    if (!existingLanguage) {
+      await prisma.language.create({
+        data: language
+      })
+      console.log(`Created language: ${language.name}`)
+    } else {
+      console.log(`Language already exists: ${language.name}`)
+    }
   }
 }
 
@@ -29,18 +36,24 @@ async function main () {
     )
   }
 
-  const hashedPassword = await hash(password, 10)
-
-  const admin = await prisma.admin.upsert({
-    where: { email },
-    update: {},
-    create: {
-      email,
-      password: hashedPassword,
-      username,
-      role: 'admin'
-    }
+  const existingAdmin = await prisma.admin.findUnique({
+    where: { email }
   })
+
+  if (!existingAdmin) {
+    const hashedPassword = await hash(password, 10)
+    await prisma.admin.create({
+      data: {
+        email,
+        password: hashedPassword,
+        username,
+        role: 'admin'
+      }
+    })
+    console.log('Created admin user')
+  } else {
+    console.log('Admin user already exists')
+  }
 
   await seedLanguages()
 }

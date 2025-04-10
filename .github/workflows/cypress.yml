@@ -6,7 +6,7 @@ name: Cypress Tests
 on:
   push:
     branches: [main]
-    tags-ignore: ['v*.*.*']
+    tags-ignore: ['v*.*.*'] # Ignore version tags to avoid duplicate runs
   pull_request:
     branches: [main]
   workflow_call: {} # Allow this workflow to be called from other workflows
@@ -14,67 +14,81 @@ on:
 jobs:
   # Run Cypress end-to-end tests
   cypress-run:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-latest # Use latest Ubuntu runner
+
+    # Configure PostgreSQL service for testing
+    services:
+      postgres:
+        image: postgres:17 # Use PostgreSQL 17
+        env:
+          POSTGRES_USER: postgres # Default superuser
+          POSTGRES_PASSWORD: postgres # Password for the superuser
+          POSTGRES_DB: frizbee_test # Database name for tests
+        ports:
+          - 5432:5432 # Expose PostgreSQL port
+        options: >-
+          --health-cmd pg_isready
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
+
     steps:
       # Step 1: Checkout the repository
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v4 # Checkout code from repository
 
-      # Step 2: Install pnpm package manager
-      - name: Install pnpm
-        uses: pnpm/action-setup@v4
-        with:
-          version: 8
-
-      # Step 3: Setup Node.js environment
+      # Step 2: Setup Node.js environment
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: '20'
-          cache: 'pnpm'
+          node-version: '20' # Use Node.js 20
+          cache: 'npm' # Cache npm dependencies
 
-      # Step 4: Get pnpm store path for caching
-      - name: Get pnpm store directory
-        shell: bash
-        run: |
-          echo "STORE_PATH=$(pnpm store path --silent)" >> $GITHUB_ENV
-
-      # Step 5: Cache pnpm dependencies and Cypress binary
-      - name: Cache pnpm and Cypress
-        uses: actions/cache@v4
-        with:
-          path: |
-            ${{ env.STORE_PATH }}
-            ~/.cache/Cypress
-          key: ${{ runner.os }}-pnpm-cypress-${{ hashFiles('**/pnpm-lock.yaml') }}
-          restore-keys: |
-            ${{ runner.os }}-pnpm-cypress-
-
-      # Step 6: Install project dependencies
+      # Step 3: Install project dependencies
       - name: Install dependencies
-        run: pnpm install
+        run: npm ci # Clean install for CI environment
 
-      # Step 7: Install Cypress binary
-      - name: Install Cypress
-        run: pnpm cypress install
+      # Step 4: Setup database
+      - name: Setup database
+        env:
+          DATABASE_URL: postgresql://postgres:postgres@localhost:5432/frizbee_test
+          NODE_ENV: test
+          NUXT_PUBLIC_AUTH_ORIGIN: http://localhost:3000
+          NUXT_ADMIN_EMAIL: admin@test.com
+          NUXT_ADMIN_PASSWORD: admin123
+          NUXT_ADMIN_USERNAME: admin
+          NUXT_JWT_SECRET: test-jwt-secret
+        run: |
+          npx prisma generate
+          npx prisma migrate dev --name init --create-only
+          npx prisma migrate deploy
+          npx prisma db seed
 
-      # Step 8: Run Cypress tests
-      - name: Cypress run
+      # Step 5: Run Cypress tests
+      - name: Run Cypress tests
         uses: cypress-io/github-action@v6
         with:
-          build: pnpm build
-          start: pnpm preview
-          browser: chrome
-          record: false
-          config-file: cypress.config.ts
+          build: npm run build # Build the application
+          start: npm run preview # Start the preview server
+          browser: chrome # Use Chrome browser
+          config-file: cypress.config.ts # Use custom Cypress config
+        env:
+          GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}} # For GitHub API access
+          DATABASE_URL: postgresql://postgres:postgres@localhost:5432/frizbee_test # DB connection
+          NODE_ENV: test
+          NUXT_PUBLIC_AUTH_ORIGIN: http://localhost:3000
+          NUXT_ADMIN_EMAIL: admin@test.com
+          NUXT_ADMIN_PASSWORD: admin123
+          NUXT_ADMIN_USERNAME: admin
+          NUXT_JWT_SECRET: test-jwt-secret
 
-      # Step 9: Upload test results as artifacts
+      # Step 6: Upload test results as artifacts
       - name: Upload test results
         uses: actions/upload-artifact@v4
-        if: always()
+        if: always() # Upload even if tests fail
         with:
           name: cypress-results
-          path: |
-            cypress/videos
-            cypress/screenshots
-            cypress/results
+          path: | # Upload test artifacts
+            cypress/videos     # Test recordings
+            cypress/screenshots  # Screenshots of failures
+            cypress/results     # Test results

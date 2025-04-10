@@ -1,5 +1,6 @@
 import { defineEventHandler, readBody, createError } from 'h3'
 import { Prisma } from '@prisma/client'
+import prisma from '~/lib/prisma'
 
 export default defineEventHandler(async (event) => {
   try {

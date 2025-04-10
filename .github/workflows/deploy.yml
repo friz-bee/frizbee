@@ -86,7 +86,14 @@ jobs:
             docker stop frizbee || true
             docker rm frizbee || true
 
-            # Step 4: Start a new container with the latest image
+            # Step 4: Run Prisma migrations
+            echo "🔄 Running database migrations..."
+            docker run --rm \
+              --env-file ~/frizbee/.env \
+              ghcr.io/${{ github.repository_owner }}/frizbee:latest \
+              npx prisma migrate deploy
+
+            # Step 5: Start a new container with the latest image
             echo "🚀 Starting the new container..."
             docker run -d \
               --name frizbee \
@@ -95,7 +102,7 @@ jobs:
               --env-file ~/frizbee/.env \
               ghcr.io/${{ github.repository_owner }}/frizbee:latest
 
-            # Step 5: Connect the container to the Docker network
+            # Step 6: Connect the container to the Docker network
             echo "🔗 Connecting the container to the network..."
             docker network connect frizbee_webnet frizbee
 
