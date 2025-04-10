@@ -26,13 +26,13 @@ async function seedLanguages () {
 }
 
 async function main () {
-  const email = process.env.ADMIN_EMAIL
-  const password = process.env.ADMIN_PASSWORD
-  const username = process.env.ADMIN_USERNAME
+  const email = process.env.NUXT_ADMIN_EMAIL
+  const password = process.env.NUXT_ADMIN_PASSWORD
+  const username = process.env.NUXT_ADMIN_USERNAME
 
   if (!email || !password || !username) {
     throw new Error(
-      'Missing required environment variables: ADMIN_EMAIL, ADMIN_PASSWORD, ADMIN_USERNAME'
+      'Missing required environment variables: NUXT_ADMIN_EMAIL, NUXT_ADMIN_PASSWORD, NUXT_ADMIN_USERNAME'
     )
   }
 
