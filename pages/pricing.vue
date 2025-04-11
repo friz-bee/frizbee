@@ -21,7 +21,7 @@
             </div>
             <div class="p-8">
               <ul class="gap-y-4">
-                <li v-for="i in [1, 2, 3, 4]" :key="i" class="flex items-start gap-3">
+                <li v-for="i in [1, 2, 3, 4]" :key="i" class="flex items-start gap-3 py-0.5">
                   <svg
                     class="w-6 h-6 text-green-400 flex-shrink-0"
                     fill="none"
@@ -68,7 +68,7 @@
             </div>
             <div class="p-8">
               <ul class="gap-y-4">
-                <li v-for="i in [1, 2, 3, 4]" :key="i" class="flex items-start gap-3">
+                <li v-for="i in [1, 2, 3, 4]" :key="i" class="flex items-start gap-3 py-0.5">
                   <svg
                     class="w-6 h-6 text-pink-400 flex-shrink-0"
                     fill="none"
@@ -109,7 +109,7 @@
             </div>
             <div class="p-8">
               <ul class="gap-y-4">
-                <li v-for="i in [1, 2, 3, 4]" :key="i" class="flex items-start gap-3">
+                <li v-for="i in [1, 2, 3, 4]" :key="i" class="flex items-start gap-3 py-0.5">
                   <svg
                     class="w-6 h-6 text-blue-400 flex-shrink-0"
                     fill="none"
@@ -143,7 +143,7 @@
       <div class="container mx-auto px-4">
         <h2 class="text-3xl font-bold mb-12 text-center">{{ $t('pricing.features.title') }}</h2>
         <div class="grid md:grid-cols-4 gap-8 max-w-6xl mx-auto">
-          <div v-for="i in [1, 2, 3, 4]" :key="i" class="text-center">
+          <div v-for="i in [0, 1, 2, 3]" :key="i" class="text-center">
             <div
               class="w-12 h-12 bg-gradient-to-r from-primary-400 to-primary-500 rounded-xl mb-4 mx-auto flex items-center justify-center transform group-hover:scale-110 transition-transform duration-300"
             >
@@ -156,8 +156,8 @@
                 ></path>
               </svg>
             </div>
-            <h3 class="font-semibold mb-2">{{ t(`pricing.features.items.${i}.title`) }}</h3>
-            <p class="text-gray-400 text-sm">{{ t(`pricing.features.items.${i}.description`) }}</p>
+            <h3 class="font-semibold mb-2">{{ $t(`pricing.features.items.${i}.title`) }}</h3>
+            <p class="text-gray-400 text-sm">{{ $t(`pricing.features.items.${i}.description`) }}</p>
           </div>
         </div>
       </div>

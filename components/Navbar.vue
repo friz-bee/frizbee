@@ -17,7 +17,7 @@
             @click.prevent="flyAway"
           />
           <span class="bg-gradient-to-r from-amber-400 to-amber-500 bg-clip-text text-transparent"
-          >FRIZBEE</span
+          >FRIZ'BEE</span
           >
         </ULink>
 

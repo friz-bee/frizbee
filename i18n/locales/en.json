@@ -45,22 +45,21 @@
   },
   "admin": {
     "dashboard": {
-      "title": "Dashboard",
-      "stats": {
-        "languages": "Languages",
-        "languagesDescription": "Total number of languages",
-        "projects": "Projects",
-        "projectsDescription": "Total number of projects",
-        "admins": "Administrators",
-        "adminsDescription": "Total number of administrators"
-      },
       "errors": {
         "fetch": "Error fetching statistics",
         "unknown": "An unknown error occurred"
-      }
+      },
+      "stats": {
+        "admins": "Administrators",
+        "adminsDescription": "Total number of administrators",
+        "languages": "Languages",
+        "languagesDescription": "Total number of languages",
+        "projects": "Projects",
+        "projectsDescription": "Total number of projects"
+      },
+      "title": "Dashboard"
     },
     "languages": {
-      "id": "ID",
       "actions": "Actions",
       "add": "Add Language",
       "cancel": "Cancel",
@@ -71,19 +70,20 @@
       "edit": "Edit",
       "empty": "No languages found",
       "erros": {
+        "codeFormat": "Code must be in the format xx or xx-XX (ex: fr or fr-FR)",
+        "codeMaxLength": "Code must not exceed 5 characters",
+        "codeMinLength": "Code must be at least 2 characters",
+        "codeRequired": "Code is required",
         "delete": "Error deleting language",
         "fetch": "Error fetching languages",
+        "nameMaxLength": "Name must not exceed 50 characters",
+        "nameMinLength": "Name must be at least 2 characters",
+        "nameRequired": "Name is required",
         "save": "Error saving language",
         "uniqueCode": "Language code already exists",
-        "unknown": "An unknown error occurred",
-        "nameRequired": "Name is required",
-        "nameMinLength": "Name must be at least 2 characters",
-        "nameMaxLength": "Name must not exceed 50 characters",
-        "codeRequired": "Code is required",
-        "codeMinLength": "Code must be at least 2 characters",
-        "codeMaxLength": "Code must not exceed 5 characters",
-        "codeFormat": "Code must be in the format xx or xx-XX (ex: fr or fr-FR)"
+        "unknown": "An unknown error occurred"
       },
+      "id": "ID",
       "modalDescription": "Add or edit a language",
       "name": "Name",
       "namePlaceholder": "Enter the language name",
@@ -226,6 +226,19 @@
       "title": "Message sent"
     },
     "title": "Contact Us"
+  },
+  "error": {
+    "404": {
+      "message": "Sorry, the page you are looking for does not exist.",
+      "title": "Page not found"
+    },
+    "500": {
+      "message": "An error occurred on the server.",
+      "title": "Server error"
+    },
+    "button": "Back to home",
+    "defaultMessage": "An error occurred",
+    "title": "Error"
   },
   "footer": {
     "contact": "Contact",
@@ -448,17 +461,17 @@
       "items": {
         "1": {
           "description": "Regular updates, bug fixes and performance optimizations",
-          "icon": "i-heroicons-wrench-screwdriver",
+          "icon": "i-lucide-wrench",
           "title": "Technical maintenance"
         },
         "2": {
           "description": "Threat protection, regular backups and monitoring",
-          "icon": "i-heroicons-shield-check",
+          "icon": "i-lucide-shield-check",
           "title": "Security"
         },
         "3": {
           "description": "Performance tracking and user data analysis",
-          "icon": "i-heroicons-chart-bar",
+          "icon": "i-lucide-bar-chart",
           "title": "Analytics"
         }
       },
@@ -496,18 +509,5 @@
       "title": "Showcase Website"
     },
     "title": "Our Services"
-  },
-  "error": {
-    "title": "Error",
-    "defaultMessage": "An error occurred",
-    "404": {
-      "title": "Page not found",
-      "message": "Sorry, the page you are looking for does not exist."
-    },
-    "500": {
-      "title": "Server error",
-      "message": "An error occurred on the server."
-    },
-    "button": "Back to home"
   }
 }

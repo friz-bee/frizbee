@@ -45,22 +45,21 @@
   },
   "admin": {
     "dashboard": {
-      "title": "Tableau de bord",
-      "stats": {
-        "languages": "Langues",
-        "languagesDescription": "Nombre total de langues",
-        "projects": "Projets",
-        "projectsDescription": "Nombre total de projets",
-        "admins": "Administrateurs",
-        "adminsDescription": "Nombre total d'administrateurs"
-      },
       "errors": {
         "fetch": "Erreur lors de la récupération des statistiques",
         "unknown": "Une erreur inconnue est survenue"
-      }
+      },
+      "stats": {
+        "admins": "Administrateurs",
+        "adminsDescription": "Nombre total d'administrateurs",
+        "languages": "Langues",
+        "languagesDescription": "Nombre total de langues",
+        "projects": "Projets",
+        "projectsDescription": "Nombre total de projets"
+      },
+      "title": "Tableau de bord"
     },
     "languages": {
-      "id": "ID",
       "actions": "Actions",
       "add": "Ajouter une langue",
       "cancel": "Annuler",
@@ -71,19 +70,20 @@
       "edit": "Modifier",
       "empty": "Aucune langue trouvée",
       "errors": {
+        "codeFormat": "Le code doit être au format xx ou xx-XX (ex: fr ou fr-FR)",
+        "codeMaxLength": "Le code ne doit pas dépasser 5 caractères",
+        "codeMinLength": "Le code doit contenir au moins 2 caractères",
+        "codeRequired": "Le code est requis",
         "delete": "Erreur lors de la suppression de la langue",
         "fetch": "Erreur lors de la récupération des langues",
+        "nameMaxLength": "Le nom ne doit pas dépasser 50 caractères",
+        "nameMinLength": "Le nom doit contenir au moins 2 caractères",
+        "nameRequired": "Le nom est requis",
         "save": "Erreur lors de la sauvegarde",
         "uniqueCode": "Le code de langue existe déjà",
-        "unknown": "Une erreur inconnue est survenue",
-        "nameRequired": "Le nom est requis",
-        "nameMinLength": "Le nom doit contenir au moins 2 caractères",
-        "nameMaxLength": "Le nom ne doit pas dépasser 50 caractères",
-        "codeRequired": "Le code est requis",
-        "codeMinLength": "Le code doit contenir au moins 2 caractères",
-        "codeMaxLength": "Le code ne doit pas dépasser 5 caractères",
-        "codeFormat": "Le code doit être au format xx ou xx-XX (ex: fr ou fr-FR)"
+        "unknown": "Une erreur inconnue est survenue"
       },
+      "id": "ID",
       "modalDescription": "Ajouter ou modifier une langue",
       "name": "Nom",
       "namePlaceholder": "Entrez le nom de la langue",
@@ -226,6 +226,19 @@
       "title": "Message envoyé"
     },
     "title": "Contactez-nous"
+  },
+  "error": {
+    "404": {
+      "message": "Désolé, la page que vous recherchez n'existe pas.",
+      "title": "Page non trouvée"
+    },
+    "500": {
+      "message": "Une erreur est survenue sur le serveur.",
+      "title": "Erreur serveur"
+    },
+    "button": "Retour à l'accueil",
+    "defaultMessage": "Une erreur est survenue",
+    "title": "Erreur"
   },
   "footer": {
     "contact": "Contact",
@@ -448,17 +461,17 @@
       "items": {
         "1": {
           "description": "Mises à jour régulières, corrections de bugs et optimisations des performances",
-          "icon": "i-heroicons-wrench-screwdriver",
+          "icon": "i-lucide-wrench",
           "title": "Maintenance technique"
         },
         "2": {
           "description": "Protection contre les menaces, sauvegardes régulières et surveillance",
-          "icon": "i-heroicons-shield-check",
+          "icon": "i-lucide-shield-check",
           "title": "Sécurité"
         },
         "3": {
           "description": "Suivi des performances et analyse des données utilisateurs",
-          "icon": "i-heroicons-chart-bar",
+          "icon": "i-lucide-bar-chart",
           "title": "Analytique"
         }
       },
@@ -496,18 +509,5 @@
       "title": "Site Vitrine"
     },
     "title": "Nos Services"
-  },
-  "error": {
-    "title": "Erreur",
-    "defaultMessage": "Une erreur est survenue",
-    "404": {
-      "title": "Page non trouvée",
-      "message": "Désolé, la page que vous recherchez n'existe pas."
-    },
-    "500": {
-      "title": "Erreur serveur",
-      "message": "Une erreur est survenue sur le serveur."
-    },
-    "button": "Retour à l'accueil"
   }
 }

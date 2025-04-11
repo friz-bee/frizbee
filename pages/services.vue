@@ -19,10 +19,10 @@
             </template>
             <div class="p-6">
               <ul class="gap-y-4">
-                <li v-for="i in [1, 2, 3, 4]" :key="i" class="flex items-start gap-3">
+                <li v-for="i in [1, 2, 3, 4]" :key="i" class="flex items-start gap-3 py-0.5">
                   <UIcon
-                    name="i-heroicons-check-circle"
-                    class="w-6 h-6 text-green-400 flex-shrink-0"
+                    name="i-lucide-check-circle"
+                    class="w-5 h-5 text-green-400 flex-shrink-0"
                   />
                   <span>{{ $t(`services.ecommerce.features.${i}`) }}</span>
                 </li>
@@ -55,11 +55,8 @@
             </template>
             <div class="p-6">
               <ul class="gap-y-4">
-                <li v-for="i in [1, 2, 3, 4]" :key="i" class="flex items-start gap-3">
-                  <UIcon
-                    name="i-heroicons-check-circle"
-                    class="w-6 h-6 text-pink-400 flex-shrink-0"
-                  />
+                <li v-for="i in [1, 2, 3, 4]" :key="i" class="flex items-start gap-3 py-0.5">
+                  <UIcon name="i-lucide-check-circle" class="w-5 h-5 text-pink-400 flex-shrink-0" />
                   <span>{{ $t(`services.showcase.features.${i}`) }}</span>
                 </li>
               </ul>
@@ -81,11 +78,8 @@
             </template>
             <div class="p-6">
               <ul class="gap-y-4">
-                <li v-for="i in [1, 2, 3, 4]" :key="i" class="flex items-start gap-3">
-                  <UIcon
-                    name="i-heroicons-check-circle"
-                    class="w-6 h-6 text-blue-400 flex-shrink-0"
-                  />
+                <li v-for="i in [1, 2, 3, 4]" :key="i" class="flex items-start gap-3 py-0.5">
+                  <UIcon name="i-lucide-check-circle" class="w-5 h-5 text-blue-400 flex-shrink-0" />
                   <span>{{ $t(`services.app.features.${i}`) }}</span>
                 </li>
               </ul>
@@ -106,28 +100,28 @@
           <div
             class="bg-gradient-to-br from-gray-900 to-black rounded-2xl p-8 border border-primary-500/50"
           >
-            <div class="grid md:grid-cols-2 gap-8">
-              <div>
-                <h3 class="text-xl font-bold mb-4">{{ $t('services.seo.why.title') }}</h3>
-                <p class="text-gray-300 mb-6">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+              <div class="grid grid-rows-[auto_1fr_auto] gap-6">
+                <h3 class="text-xl font-bold">{{ $t('services.seo.why.title') }}</h3>
+                <p class="text-gray-300">
                   {{ $t('services.seo.why.description') }}
                 </p>
                 <ul class="gap-y-3">
-                  <li v-for="i in [1, 2, 3]" :key="i" class="flex items-start gap-3">
+                  <li v-for="i in [1, 2, 3]" :key="i" class="flex items-start gap-3 py-0.5">
                     <UIcon
-                      name="i-heroicons-check-circle"
+                      name="i-lucide-check-circle"
                       class="w-5 h-5 text-primary-500 flex-shrink-0"
                     />
                     <span>{{ $t(`services.seo.why.points.${i}`) }}</span>
                   </li>
                 </ul>
               </div>
-              <div>
-                <h3 class="text-xl font-bold mb-4">{{ $t('services.seo.services.title') }}</h3>
+              <div class="grid grid-rows-[auto_1fr] gap-6">
+                <h3 class="text-xl font-bold">{{ $t('services.seo.services.title') }}</h3>
                 <ul class="gap-y-3">
-                  <li v-for="i in [1, 2, 3]" :key="i" class="flex items-start gap-3">
+                  <li v-for="i in [1, 2, 3]" :key="i" class="flex items-start gap-3 py-0.5">
                     <UIcon
-                      name="i-heroicons-check-circle"
+                      name="i-lucide-check-circle"
                       class="w-5 h-5 text-primary-500 flex-shrink-0"
                     />
                     <span>{{ $t(`services.seo.services.list.${i}`) }}</span>
@@ -177,30 +171,30 @@
           <div
             class="bg-gradient-to-br from-gray-900 to-black rounded-2xl p-8 border border-primary-500/50"
           >
-            <div class="grid md:grid-cols-2 gap-8">
-              <div>
-                <h3 class="text-xl font-bold mb-4">{{ $t('services.client.approach.title') }}</h3>
-                <p class="text-gray-300 mb-6">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+              <div class="grid grid-rows-[auto_1fr_auto] gap-6">
+                <h3 class="text-xl font-bold">{{ $t('services.client.approach.title') }}</h3>
+                <p class="text-gray-300">
                   {{ $t('services.client.approach.description') }}
                 </p>
                 <ul class="gap-y-3">
-                  <li v-for="i in [1, 2, 3]" :key="i" class="flex items-start gap-3">
+                  <li v-for="i in [1, 2, 3]" :key="i" class="flex items-start gap-3 py-0.5">
                     <UIcon
-                      name="i-heroicons-check-circle"
+                      name="i-lucide-check-circle"
                       class="w-5 h-5 text-primary-500 flex-shrink-0"
                     />
                     <span>{{ $t(`services.client.approach.points.${i}`) }}</span>
                   </li>
                 </ul>
               </div>
-              <div>
-                <h3 class="text-xl font-bold mb-4">
+              <div class="grid grid-rows-[auto_1fr] gap-6">
+                <h3 class="text-xl font-bold">
                   {{ $t('services.client.commitments.title') }}
                 </h3>
                 <ul class="gap-y-3">
-                  <li v-for="i in [1, 2, 3]" :key="i" class="flex items-start gap-3">
+                  <li v-for="i in [1, 2, 3]" :key="i" class="flex items-start gap-3 py-0.5">
                     <UIcon
-                      name="i-heroicons-check-circle"
+                      name="i-lucide-check-circle"
                       class="w-5 h-5 text-primary-500 flex-shrink-0"
                     />
                     <span>{{ $t(`services.client.commitments.list.${i}`) }}</span>

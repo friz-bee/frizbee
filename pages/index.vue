@@ -47,10 +47,12 @@
 
       <!-- Main content -->
       <div class="container mx-auto px-4 pt-6 relative z-10">
-        <div class="grid md:grid-cols-2 gap-12 items-center min-h-[70vh]">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center min-h-[70vh]">
           <!-- Left side content -->
-          <div class="z-10">
-            <h1 class="text-6xl md:text-7xl font-bold mb-6 leading-tight">
+          <div class="z-10 text-center lg:text-left">
+            <h1
+              class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-4 lg:mb-6 leading-tight"
+            >
               <span class="text-white">{{
                 $t('home.hero.title').split($t('home.hero.highlight'))[0]
               }}</span>
@@ -81,10 +83,10 @@
                 $t('home.hero.title').split($t('home.hero.highlight'))[1]
               }}</span>
             </h1>
-            <p class="text-xl text-slate-300 mb-8 max-w-lg">
+            <p class="text-lg sm:text-xl text-slate-300 mb-6 lg:mb-8 max-w-lg mx-auto lg:mx-0">
               {{ $t('home.hero.subtitle') }}
             </p>
-            <div class="flex flex-wrap gap-4">
+            <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
               <ULink
                 :to="localePath('/contact')"
                 class="group relative bg-gradient-to-r from-amber-400 to-amber-500 text-slate-900 px-8 py-4 rounded-full text-lg font-semibold hover:from-amber-500 hover:to-amber-600 transition-all duration-300 shadow-lg hover:shadow-amber-500/20 transform hover:scale-105 overflow-hidden"
@@ -104,7 +106,7 @@
                 ></div>
               </ULink>
             </div>
-            <div class="mt-12">
+            <div class="mt-8 lg:mt-12 text-center lg:text-left">
               <ULink
                 :to="localePath('/about')"
                 class="group inline-flex items-center text-sky-400 hover:text-sky-300 transition-all duration-300"
@@ -128,7 +130,7 @@
           </div>
 
           <!-- Right side 3D element -->
-          <div class="relative z-10">
+          <div class="relative z-10 hidden lg:block">
             <div class="relative w-full h-[500px]">
               <!-- Animated glow effects -->
               <div
@@ -165,22 +167,22 @@
       </div>
 
       <!-- Service cards -->
-      <div id="service-cards" class="w-full overflow-x-hidden pb-32 pt-12">
+      <div id="service-cards" class="w-full overflow-x-hidden pb-16 lg:pb-32 pt-8 lg:pt-12">
         <div class="container mx-auto px-4">
-          <div class="flex flex-col md:flex-row justify-center gap-6 md:gap-8">
-            <div
-              class="group relative overflow-hidden bg-gradient-to-br from-gray-900 to-black p-6 rounded-xl backdrop-blur-sm border border-green-500/50 bg-green-500/20 transition-all duration-500 w-full md:w-[340px] -rotate-6 hover:-translate-y-2 hover:rotate-0"
+          <div class="flex flex-col lg:flex-row justify-center gap-6 lg:gap-8">
+            <UCard
+              class="group relative overflow-hidden bg-gradient-to-br from-gray-900 to-black border border-green-500/50 bg-green-500/20 transition-all duration-500 w-full lg:w-[340px] -rotate-0 lg:-rotate-6 hover:-translate-y-2 hover:rotate-0"
             >
               <div
                 class="absolute inset-0 bg-gradient-to-br from-green-500/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"
               ></div>
               <div class="relative z-10">
-                <div class="flex items-center gap-4 mb-4">
+                <div class="flex items-center gap-3 sm:gap-4 mb-3 sm:mb-4">
                   <div
-                    class="w-12 h-12 rounded-lg bg-gradient-to-br from-green-400 to-green-500 flex items-center justify-center transform group-hover:scale-110 transition-transform duration-500"
+                    class="w-10 h-10 sm:w-12 sm:h-12 rounded-lg bg-gradient-to-br from-green-400 to-green-500 flex items-center justify-center transform group-hover:scale-110 transition-transform duration-500"
                   >
                     <svg
-                      class="w-6 h-6 text-white"
+                      class="w-5 h-5 sm:w-6 sm:h-6 text-white"
                       fill="none"
                       stroke="currentColor"
                       viewBox="0 0 24 24"
@@ -193,12 +195,16 @@
                       ></path>
                     </svg>
                   </div>
-                  <h3 class="text-xl font-bold text-white">{{ $t('services.ecommerce.title') }}</h3>
+                  <h3 class="text-lg sm:text-xl font-bold text-white">
+                    {{ $t('services.ecommerce.title') }}
+                  </h3>
                 </div>
-                <p class="text-gray-300">{{ $t('services.ecommerce.description') }}</p>
+                <p class="text-sm sm:text-base text-gray-300">
+                  {{ $t('services.ecommerce.description') }}
+                </p>
                 <ULink
                   :to="localePath('/pricing')"
-                  class="inline-flex items-center text-green-400 mt-4 group-hover:text-green-300 transition-colors"
+                  class="inline-flex items-center text-green-400 mt-3 sm:mt-4 group-hover:text-green-300 transition-colors hover:text-green-300"
                 >
                   {{ $t('home.hero.services.pricing') }}
                   <svg
@@ -216,21 +222,21 @@
                   </svg>
                 </ULink>
               </div>
-            </div>
+            </UCard>
 
-            <div
-              class="group relative overflow-hidden bg-gradient-to-br from-gray-900 to-black p-6 rounded-xl backdrop-blur-sm border border-pink-500/50 bg-pink-500/20 transition-all duration-500 w-full md:w-[340px] rotate-3 hover:-translate-y-2 hover:rotate-0"
+            <UCard
+              class="group relative overflow-hidden bg-gradient-to-br from-gray-900 to-black border border-pink-500/50 bg-pink-500/20 transition-all duration-500 w-full lg:w-[340px] rotate-0 lg:rotate-3 hover:-translate-y-2 hover:rotate-0"
             >
               <div
                 class="absolute inset-0 bg-gradient-to-br from-pink-500/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"
               ></div>
               <div class="relative z-10">
-                <div class="flex items-center gap-4 mb-4">
+                <div class="flex items-center gap-3 sm:gap-4 mb-3 sm:mb-4">
                   <div
-                    class="w-12 h-12 rounded-lg bg-gradient-to-br from-pink-400 to-pink-500 flex items-center justify-center transform group-hover:scale-110 transition-transform duration-500"
+                    class="w-10 h-10 sm:w-12 sm:h-12 rounded-lg bg-gradient-to-br from-pink-400 to-pink-500 flex items-center justify-center transform group-hover:scale-110 transition-transform duration-500"
                   >
                     <svg
-                      class="w-6 h-6 text-white"
+                      class="w-5 h-5 sm:w-6 sm:h-6 text-white"
                       fill="none"
                       stroke="currentColor"
                       viewBox="0 0 24 24"
@@ -243,12 +249,16 @@
                       ></path>
                     </svg>
                   </div>
-                  <h3 class="text-xl font-bold text-white">{{ $t('services.showcase.title') }}</h3>
+                  <h3 class="text-lg sm:text-xl font-bold text-white">
+                    {{ $t('services.showcase.title') }}
+                  </h3>
                 </div>
-                <p class="text-gray-300">{{ $t('services.showcase.description') }}</p>
+                <p class="text-sm sm:text-base text-gray-300">
+                  {{ $t('services.showcase.description') }}
+                </p>
                 <ULink
                   :to="localePath('/pricing')"
-                  class="inline-flex items-center text-pink-400 mt-4 group-hover:text-pink-300 transition-colors"
+                  class="inline-flex items-center text-pink-400 mt-3 sm:mt-4 group-hover:text-pink-300 transition-colors hover:text-pink-300"
                 >
                   {{ $t('home.hero.services.pricing') }}
                   <svg
@@ -266,21 +276,21 @@
                   </svg>
                 </ULink>
               </div>
-            </div>
+            </UCard>
 
-            <div
-              class="group relative overflow-hidden bg-gradient-to-br from-gray-900 to-black p-6 rounded-xl backdrop-blur-sm border border-blue-500/50 bg-blue-500/20 transition-all duration-500 w-full md:w-[340px] rotate-6 hover:-translate-y-2 hover:rotate-0"
+            <UCard
+              class="group relative overflow-hidden bg-gradient-to-br from-gray-900 to-black border border-blue-500/50 bg-blue-500/20 transition-all duration-500 w-full lg:w-[340px] rotate-0 lg:rotate-6 hover:-translate-y-2 hover:rotate-0"
             >
               <div
                 class="absolute inset-0 bg-gradient-to-br from-blue-500/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"
               ></div>
               <div class="relative z-10">
-                <div class="flex items-center gap-4 mb-4">
+                <div class="flex items-center gap-3 sm:gap-4 mb-3 sm:mb-4">
                   <div
-                    class="w-12 h-12 rounded-lg bg-gradient-to-br from-blue-400 to-blue-500 flex items-center justify-center transform group-hover:scale-110 transition-transform duration-500"
+                    class="w-10 h-10 sm:w-12 sm:h-12 rounded-lg bg-gradient-to-br from-blue-400 to-blue-500 flex items-center justify-center transform group-hover:scale-110 transition-transform duration-500"
                   >
                     <svg
-                      class="w-6 h-6 text-white"
+                      class="w-5 h-5 sm:w-6 sm:h-6 text-white"
                       fill="none"
                       stroke="currentColor"
                       viewBox="0 0 24 24"
@@ -293,12 +303,16 @@
                       ></path>
                     </svg>
                   </div>
-                  <h3 class="text-xl font-bold text-white">{{ $t('services.app.title') }}</h3>
+                  <h3 class="text-lg sm:text-xl font-bold text-white">
+                    {{ $t('services.app.title') }}
+                  </h3>
                 </div>
-                <p class="text-gray-300">{{ $t('services.app.description') }}</p>
+                <p class="text-sm sm:text-base text-gray-300">
+                  {{ $t('services.app.description') }}
+                </p>
                 <ULink
                   :to="localePath('/pricing')"
-                  class="inline-flex items-center text-blue-400 mt-4 group-hover:text-blue-300 transition-colors"
+                  class="inline-flex items-center text-blue-400 mt-3 sm:mt-4 group-hover:text-blue-300 transition-colors hover:text-blue-300"
                 >
                   {{ $t('home.hero.services.pricing') }}
                   <svg
@@ -316,19 +330,21 @@
                   </svg>
                 </ULink>
               </div>
-            </div>
+            </UCard>
           </div>
         </div>
       </div>
     </section>
 
     <!-- Services Section -->
-    <section id="services" class="py-20 relative border-t border-slate-700">
+    <section id="services" class="py-12 lg:py-20 relative border-t border-slate-700">
       <div class="container mx-auto px-4">
-        <h2 class="text-4xl font-bold mb-12 text-center text-white">
+        <h2 class="text-3xl lg:text-4xl font-bold mb-8 lg:mb-12 text-center text-white">
           {{ $t('home.services.title') }}
         </h2>
-        <div class="grid md:grid-cols-3 gap-8">
+        <div
+          class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8 justify-items-center"
+        >
           <div
             class="group p-8 rounded-xl bg-gradient-to-br from-gray-900 to-black border border-gray-800 hover:border-pink-500/50 transition-all duration-500 shadow-lg hover:shadow-xl"
           >
@@ -355,7 +371,7 @@
           </div>
 
           <div
-            class="group p-8 rounded-xl bg-gradient-to-br from-gray-900 to-black border border-gray-800 hover:border-green-500/50 transition-all duration-500 transform md:scale-105 md:translate-y-2 shadow-lg hover:shadow-xl"
+            class="group p-8 rounded-xl bg-gradient-to-br from-gray-900 to-black border border-gray-800 hover:border-green-500/50 transition-all duration-500 shadow-lg hover:shadow-xl md:translate-y-0 lg:translate-y-2"
           >
             <div
               class="w-14 h-14 bg-gradient-to-br from-green-400 to-green-500 rounded-xl mb-6 flex items-center justify-center transform group-hover:scale-110 transition-transform duration-500 group-hover:rotate-6"
@@ -410,8 +426,6 @@
 </template>
 
 <script setup lang="ts">
-import { useI18n } from 'vue-i18n'
-
 const localePath = useLocalePath()
 </script>
 
