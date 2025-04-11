@@ -2,21 +2,17 @@
   <div
     class="flex min-h-screen items-center justify-center bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900"
   >
-    <UCard
-      class="w-full max-w-md"
-      :ui="{
-        base: 'bg-slate-800',
-        header: 'bg-slate-800',
-        body: 'bg-slate-800'
-      }"
-    >
-      <template #header>
-        <h2 class="text-2xl font-bold text-center text-white">
-          {{ $t('admin.login.title') }}
-        </h2>
-      </template>
+    <div class="w-full max-w-md">
+      <h2 class="text-2xl font-bold text-center text-white mb-12">
+        {{ $t('admin.login.title') }}
+      </h2>
 
-      <UForm :schema="schema" :state="state" @submit="handleLogin">
+      <UForm
+        :schema="schema"
+        :state="state"
+        class="gap-y-6 bg-slate-900/90 backdrop-blur-md border border-slate-600/50 rounded-2xl p-8 shadow-2xl shadow-slate-900/70"
+        @submit="handleLogin"
+      >
         <div class="gap-y-4 flex flex-col gap-4">
           <FormInput
             v-model="state.email"
@@ -25,9 +21,13 @@
             type="email"
             :placeholder="$t('admin.login.emailPlaceholder')"
             required
+            class="group"
           >
             <template #leading>
-              <UIcon name="i-lucide-mail" class="size-6" />
+              <UIcon
+                name="i-lucide-mail"
+                class="size-6 transition-colors group-focus-within:text-primary-500"
+              />
             </template>
           </FormInput>
 
@@ -37,9 +37,13 @@
             name="password"
             :placeholder="$t('admin.login.passwordPlaceholder')"
             required
+            class="group"
           >
             <template #leading>
-              <UIcon name="i-lucide-lock" class="size-6" />
+              <UIcon
+                name="i-lucide-lock"
+                class="size-6 transition-colors group-focus-within:text-primary-500"
+              />
             </template>
           </FormPassword>
 
@@ -48,7 +52,7 @@
             block
             :loading="pending"
             :disabled="!state.email || !state.password"
-            class="w-fit self-center"
+            class="w-fit self-center transition-all duration-300 hover:scale-105"
             size="lg"
             color="primary"
           >
@@ -56,7 +60,7 @@
           </UButton>
         </div>
       </UForm>
-    </UCard>
+    </div>
   </div>
 </template>
 

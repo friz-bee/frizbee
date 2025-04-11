@@ -7,79 +7,82 @@
     <section id="contact-form" class="py-20 relative">
       <div class="container mx-auto px-4">
         <div class="max-w-3xl mx-auto">
-          <UCard
-            class="mb-16"
-            :ui="{
-              base: 'bg-slate-800',
-              header: 'bg-slate-800',
-              body: 'bg-slate-800'
-            }"
+          <h2 class="text-2xl font-bold text-center text-white mb-12">
+            {{ $t('contact.form.title') }}
+          </h2>
+
+          <UForm
+            :schema="schema"
+            :state="state"
+            class="gap-y-6 bg-slate-900/90 backdrop-blur-md border border-slate-600/50 rounded-2xl p-8 shadow-2xl shadow-slate-900/70"
+            @submit="handleSubmit"
           >
-            <template #header>
-              <h2 class="text-2xl font-bold text-center text-white">
-                {{ $t('contact.form.title') }}
-              </h2>
-            </template>
-
-            <UForm :schema="schema" :state="state" class="gap-y-6" @submit="handleSubmit">
-              <div class="grid md:grid-cols-2 gap-6">
-                <FormInput
-                  v-model="state.name"
-                  :label="$t('contact.form.name')"
-                  :placeholder="$t('contact.form.namePlaceholder')"
-                  name="name"
-                  required
-                >
-                  <template #leading>
-                    <UIcon name="i-lucide:pencil" class="size-6" />
-                  </template>
-                </FormInput>
-
-                <FormInput
-                  v-model="state.email"
-                  :label="$t('contact.form.email')"
-                  :placeholder="$t('contact.form.emailPlaceholder')"
-                  name="email"
-                  type="email"
-                  required
-                >
-                  <template #leading>
-                    <UIcon name="i-lucide:at-sign" class="size-6" />
-                  </template>
-                </FormInput>
-              </div>
-
-              <FormSelect
-                v-model="state.subject"
-                :label="$t('contact.form.subject')"
-                name="subject"
-                :items="subjectOptions"
-                :placeholder="$t('contact.form.subjectPlaceholder')"
+            <div class="grid md:grid-cols-2 gap-6">
+              <FormInput
+                v-model="state.name"
+                :label="$t('contact.form.name')"
+                :placeholder="$t('contact.form.namePlaceholder')"
+                name="name"
                 required
-              />
+                class="group"
+              >
+                <template #leading>
+                  <UIcon
+                    name="i-lucide:pencil"
+                    class="size-6 transition-colors group-focus-within:text-primary-500"
+                  />
+                </template>
+              </FormInput>
 
-              <FormTextarea
-                v-model="state.message"
-                :label="$t('contact.form.message')"
-                name="message"
-                :placeholder="$t('contact.form.messagePlaceholder')"
+              <FormInput
+                v-model="state.email"
+                :label="$t('contact.form.email')"
+                :placeholder="$t('contact.form.emailPlaceholder')"
+                name="email"
+                type="email"
                 required
-                :rows="5"
-              />
+                class="group"
+              >
+                <template #leading>
+                  <UIcon
+                    name="i-lucide:at-sign"
+                    class="size-6 transition-colors group-focus-within:text-primary-500"
+                  />
+                </template>
+              </FormInput>
+            </div>
 
-              <div class="flex justify-end">
-                <UButton
-                  type="submit"
-                  color="primary"
-                  :loading="isSubmitting"
-                  :disabled="isSubmitting"
-                  size="lg"
-                >
-                  {{ isSubmitting ? $t('contact.form.sending') : $t('contact.form.send') }}
-                </UButton>
-              </div>
-            </UForm>
-          </UCard>
+            <FormSelect
+              v-model="state.subject"
+              :label="$t('contact.form.subject')"
+              name="subject"
+              :items="subjectOptions"
+              :placeholder="$t('contact.form.subjectPlaceholder')"
+              required
+            />
+
+            <FormTextarea
+              v-model="state.message"
+              :label="$t('contact.form.message')"
+              name="message"
+              :placeholder="$t('contact.form.messagePlaceholder')"
+              required
+              :rows="5"
+            />
+
+            <div class="flex justify-end">
+              <UButton
+                type="submit"
+                color="primary"
+                :loading="isSubmitting"
+                :disabled="isSubmitting"
+                size="lg"
+                class="transition-all duration-300 hover:scale-105"
+              >
+                {{ isSubmitting ? $t('contact.form.sending') : $t('contact.form.send') }}
+              </UButton>
+            </div>
+          </UForm>
 
           <div class="mt-16 grid md:grid-cols-3 gap-8">
             <div class="text-center">
