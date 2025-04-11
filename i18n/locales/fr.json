@@ -5,7 +5,6 @@
       "description": "Contactez-nous pour discuter de votre projet et découvrir comment nous pouvons vous aider à le concrétiser.",
       "title": "Prêt à démarrer votre projet ?"
     },
-    "description": "Nous sommes une équipe passionnée de développeurs web et designers créatifs.",
     "hero": {
       "subtitle": "Une équipe passionnée qui transforme vos idées en solutions digitales innovantes",
       "title": "À propos"
@@ -26,7 +25,6 @@
         "title": "Notre Vision"
       }
     },
-    "title": "À propos de nous",
     "values": {
       "collaboration": {
         "description": "Nous travaillons en étroite collaboration avec nos clients pour garantir des résultats qui dépassent leurs attentes.",

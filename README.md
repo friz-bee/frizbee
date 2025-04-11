@@ -89,46 +89,11 @@ npm run tag:minor
 npm run tag:major
 ```
 
-### Database
-
-```bash
-# Access Adminer interface
-http://localhost:8000
-
-# Database commands
-# Connect to PostgreSQL container
-docker exec -it frizbee_postgres psql -U postgres -d frizbee
-
-# Prisma commands
-# Generate Prisma client
-npx prisma generate
-
-# Create new migration
-npx prisma migrate dev --name [migration_name]
-
-# Apply migrations
-npx prisma migrate deploy
-
-# Reset database
-npx prisma migrate reset
-
-# View database schema
-npx prisma db pull
-
-# Seed database
-npx prisma db seed
-
-# Studio (GUI for database)
-npx prisma studio
-```
-
 ## 🔐 Environment Variables
 
-- `NUXT_ADMIN_EMAIL`: Admin email
-- `NUXT_ADMIN_PASSWORD`: Admin password
-- `NUXT_ADMIN_USERNAME`: Admin username
+- `NUXT_DATABASE_URL`: PostgreSQL database connection URL
+- `NUXT_AUTH_ORIGIN`: Base URL for authentication (e.g. http://localhost:3000)
 - `NUXT_JWT_SECRET`: JWT secret key
-- `NUXT_AUTH_ORIGIN`: Authentication origin URL
 
 ## 🌐 Features
 
@@ -139,6 +104,111 @@ npx prisma studio
 - E2E testing with Cypress
 - Linting with ESLint and Prettier
 - Git hooks with Husky
+
+## 👤 Admin Interface
+
+The admin interface is accessible at `/admin` after authentication.
+
+### Default Credentials
+
+- Email: `admin@example.com`
+- Password: `P@ssw0rd`
+
+### Security
+
+- Admin interface is protected by JWT authentication
+- Admin routes are secured by the `auth` middleware
+- JWT tokens expire after 7 days
+- Credentials can be modified via environment variables
+- Authentication uses a local strategy with custom endpoints:
+  - Login: `/api/admin/login`
+  - Logout: `/api/admin/logout`
+  - Session: `/api/admin/session`
+
+### Features
+
+- Multilingual interface (FR/EN)
+- Dark mode by default
+- User session management
+- Protected sensitive routes
+- Form validation with Yup
+
+## 🗄️ Database
+
+### Development Setup
+
+1. Start PostgreSQL and Adminer:
+
+```bash
+docker compose up -d
+```
+
+2. Verify containers are running:
+
+```bash
+docker compose ps
+```
+
+3. Access Adminer interface:
+
+- URL: http://localhost:8000
+- System: PostgreSQL
+- Server: postgres
+- Username: postgres
+- Password: postgres
+- Database: frizbee
+
+### Migration Management
+
+1. Generate Prisma client:
+
+```bash
+npx prisma generate
+```
+
+2. Create a new migration:
+
+```bash
+npx prisma migrate dev --name [migration_name]
+```
+
+3. Apply migrations in production:
+
+```bash
+npx prisma migrate deploy
+```
+
+4. Reset database (⚠️ deletes all data):
+
+```bash
+npx prisma migrate reset
+```
+
+5. View database with Prisma Studio:
+
+```bash
+npx prisma studio
+```
+
+### Useful Commands
+
+- Connect to PostgreSQL via CLI:
+
+```bash
+docker exec -it frizbee_postgres psql -U postgres -d frizbee
+```
+
+- View database logs:
+
+```bash
+docker compose logs postgres
+```
+
+- Stop containers:
+
+```bash
+docker compose down
+```
 
 ## 📦 Project Structure
 

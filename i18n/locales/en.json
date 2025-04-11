@@ -5,7 +5,6 @@
       "description": "Contact us to discuss your project and discover how we can help you bring it to life.",
       "title": "Ready to start your project?"
     },
-    "description": "We are a team of passionate web developers and creative designers.",
     "hero": {
       "subtitle": "A passionate team that transforms your ideas into innovative digital solutions",
       "title": "About"
@@ -26,7 +25,6 @@
         "title": "Our Vision"
       }
     },
-    "title": "About Us",
     "values": {
       "collaboration": {
         "description": "We work closely with our clients to ensure results that exceed their expectations.",
