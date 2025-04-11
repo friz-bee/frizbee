@@ -7,7 +7,7 @@ export default defineEventHandler(async (event) => {
     const id = Number(event.context.params?.id)
     const body = await readBody(event)
 
-    return await prisma.language.update({
+    return await prisma.languages.update({
       where: {
         id
       },

@@ -5,48 +5,47 @@ generator client {
 
 datasource db {
   provider = "postgresql"
-  url      = env("DATABASE_URL")
+  url      = env("NUXT_DATABASE_URL")
 }
 
-model Admin {
+model admins {
   id       Int    @id @default(autoincrement())
   email    String @unique
   password String
   username String @unique
-  role     String @default("admin")
 }
 
-model Language {
+model languages {
   id        Int                  @id @default(autoincrement())
   code      String               @unique
   name      String
-  isDefault Boolean              @default(false)
-  projects  ProjectTranslation[]
-  createdAt DateTime             @default(now())
-  updatedAt DateTime             @updatedAt
+  is_default Boolean              @default(false)
+  projects  project_translations[]
+  created_at DateTime             @default(now())
+  updated_at DateTime             @updatedAt
 }
 
-model Project {
+model projects {
   id           Int                  @id @default(autoincrement())
   slug         String               @unique
-  imageUrl     String
-  techStack    String[]
-  projectUrl   String?
-  translations ProjectTranslation[]
-  createdAt    DateTime             @default(now())
-  updatedAt    DateTime             @updatedAt
+  image_url     String
+  tech_stack    String[]
+  project_url   String?
+  translations project_translations[]
+  created_at    DateTime             @default(now())
+  updated_at    DateTime             @updatedAt
 }
 
-model ProjectTranslation {
+model project_translations {
   id          Int      @id @default(autoincrement())
-  projectId   Int
-  languageId  Int
+  project_id   Int
+  language_id  Int
   title       String
   description String
-  project     Project  @relation(fields: [projectId], references: [id], onDelete: Cascade)
-  language    Language @relation(fields: [languageId], references: [id], onDelete: Cascade)
-  createdAt   DateTime @default(now())
-  updatedAt   DateTime @updatedAt
+  project     projects  @relation(fields: [project_id], references: [id], onDelete: Cascade)
+  language    languages @relation(fields: [language_id], references: [id], onDelete: Cascade)
+  created_at   DateTime  @default(now())
+  updated_at   DateTime  @updatedAt
 
-  @@unique([projectId, languageId])
+  @@unique([project_id, language_id])
 }

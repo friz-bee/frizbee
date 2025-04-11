@@ -1,49 +1,47 @@
 <template>
-  <div class="flex min-h-screen items-center justify-center">
-    <UCard class="w-full max-w-md">
+  <div
+    class="flex min-h-screen items-center justify-center bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900"
+  >
+    <UCard
+      class="w-full max-w-md"
+      :ui="{
+        base: 'bg-slate-800',
+        header: 'bg-slate-800',
+        body: 'bg-slate-800'
+      }"
+    >
       <template #header>
-        <h2 class="text-2xl font-bold text-center text-secondary-500">
+        <h2 class="text-2xl font-bold text-center text-white">
           {{ $t('admin.login.title') }}
         </h2>
       </template>
 
       <UForm :schema="schema" :state="state" @submit="handleLogin">
         <div class="gap-y-4 flex flex-col gap-4">
-          <UFormField :label="$t('admin.login.email')" name="email">
-            <UInput
-              v-model="state.email"
-              type="email"
-              :placeholder="$t('admin.login.emailPlaceholder')"
-              icon="i-lucide-mail"
-              class="w-full"
-              size="lg"
-            />
-          </UFormField>
+          <FormInput
+            v-model="state.email"
+            :label="$t('admin.login.email')"
+            name="email"
+            type="email"
+            :placeholder="$t('admin.login.emailPlaceholder')"
+            required
+          >
+            <template #leading>
+              <UIcon name="i-lucide-mail" class="size-6" />
+            </template>
+          </FormInput>
 
-          <UFormField :label="$t('admin.login.password')" name="password">
-            <UInput
-              v-model="state.password"
-              :type="showPassword ? 'text' : 'password'"
-              :placeholder="$t('admin.login.passwordPlaceholder')"
-              icon="i-lucide-lock"
-              class="w-full"
-              size="lg"
-            >
-              <template #trailing>
-                <UButton
-                  color="neutral"
-                  variant="link"
-                  size="lg"
-                  :icon="showPassword ? 'i-lucide-eye-off' : 'i-lucide-eye'"
-                  :aria-label="
-                    showPassword ? $t('admin.login.hidePassword') : $t('admin.login.showPassword')
-                  "
-                  :aria-pressed="showPassword"
-                  @click="showPassword = !showPassword"
-                />
-              </template>
-            </UInput>
-          </UFormField>
+          <FormPassword
+            v-model="state.password"
+            :label="$t('admin.login.password')"
+            name="password"
+            :placeholder="$t('admin.login.passwordPlaceholder')"
+            required
+          >
+            <template #leading>
+              <UIcon name="i-lucide-lock" class="size-6" />
+            </template>
+          </FormPassword>
 
           <UButton
             type="submit"
@@ -52,6 +50,7 @@
             :disabled="!state.email || !state.password"
             class="w-fit self-center"
             size="lg"
+            color="primary"
           >
             {{ $t('admin.login.submit') }}
           </UButton>

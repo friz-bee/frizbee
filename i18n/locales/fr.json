@@ -45,34 +45,48 @@
   },
   "admin": {
     "dashboard": {
+      "title": "Tableau de bord",
       "stats": {
         "languages": "Langues",
-        "languagesDescription": "Langues actives",
+        "languagesDescription": "Nombre total de langues",
         "projects": "Projets",
-        "projectsDescription": "Total des projets",
-        "translations": "Traductions",
-        "translationsDescription": "Total des traductions"
+        "projectsDescription": "Nombre total de projets",
+        "admins": "Administrateurs",
+        "adminsDescription": "Nombre total d'administrateurs"
       },
-      "title": "Tableau de bord"
+      "errors": {
+        "fetch": "Erreur lors de la récupération des statistiques",
+        "unknown": "Une erreur inconnue est survenue"
+      }
     },
     "languages": {
+      "id": "ID",
       "actions": "Actions",
       "add": "Ajouter une langue",
       "cancel": "Annuler",
       "code": "Code",
+      "codePlaceholder": "Entrez le code de la langue",
       "default": "Par défaut",
       "delete": "Supprimer",
       "edit": "Modifier",
       "empty": "Aucune langue trouvée",
-      "error": {
+      "errors": {
         "delete": "Erreur lors de la suppression de la langue",
         "fetch": "Erreur lors de la récupération des langues",
-        "save": "Erreur lors de l'enregistrement de la langue",
+        "save": "Erreur lors de la sauvegarde",
         "uniqueCode": "Le code de langue existe déjà",
-        "unknown": "Une erreur inconnue est survenue"
+        "unknown": "Une erreur inconnue est survenue",
+        "nameRequired": "Le nom est requis",
+        "nameMinLength": "Le nom doit contenir au moins 2 caractères",
+        "nameMaxLength": "Le nom ne doit pas dépasser 50 caractères",
+        "codeRequired": "Le code est requis",
+        "codeMinLength": "Le code doit contenir au moins 2 caractères",
+        "codeMaxLength": "Le code ne doit pas dépasser 5 caractères",
+        "codeFormat": "Le code doit être au format xx ou xx-XX (ex: fr ou fr-FR)"
       },
       "modalDescription": "Ajouter ou modifier une langue",
       "name": "Nom",
+      "namePlaceholder": "Entrez le nom de la langue",
       "save": "Enregistrer",
       "setDefault": "Définir comme langue par défaut",
       "success": {
@@ -101,9 +115,59 @@
       "title": "Connexion Admin"
     },
     "sidebar": {
+      "admins": "Administrateurs",
       "dashboard": "Tableau de bord",
       "languages": "Langues",
       "logout": "Déconnexion"
+    },
+    "users": {
+      "actions": "Actions",
+      "add": "Ajouter un administrateur",
+      "cancel": "Annuler",
+      "confirmPassword": "Confirmer le mot de passe",
+      "confirmPasswordPlaceholder": "Confirmez votre mot de passe",
+      "delete": "Supprimer l'administrateur",
+      "edit": "Modifier l'administrateur",
+      "email": "Email",
+      "emailPlaceholder": "Entrez l'email de l'administrateur",
+      "empty": "Aucun administrateur trouvé",
+      "errors": {
+        "confirmPasswordRequired": "La confirmation du mot de passe est requise",
+        "delete": "Erreur lors de la suppression",
+        "emailRequired": "L'email est requis",
+        "fetch": "Erreur lors de la récupération des utilisateurs",
+        "general": "Une erreur est survenue lors de la validation du formulaire",
+        "invalidEmail": "L'email n'est pas valide",
+        "nameMinLength": "Le nom doit contenir au moins 2 caractères",
+        "nameRequired": "Le nom est requis",
+        "passwordComplex": "Le mot de passe doit contenir au moins une majuscule, une minuscule, un chiffre et un caractère spécial",
+        "passwordMaxLength": "Le mot de passe ne doit pas dépasser 50 caractères",
+        "passwordMinLength": "Le mot de passe doit contenir au moins 8 caractères",
+        "passwordRequired": "Le mot de passe est requis",
+        "passwordsMatch": "Les mots de passe ne correspondent pas",
+        "save": "Erreur lors de la sauvegarde",
+        "uniqueEmail": "Cet email est déjà utilisé",
+        "uniqueUsername": "Ce nom d'utilisateur est déjà utilisé",
+        "unknown": "Une erreur inconnue est survenue",
+        "validation": "Erreur de validation"
+      },
+      "id": "ID",
+      "modalDescription": "Gérez les informations de l'administrateur",
+      "name": "Nom d'utilisateur",
+      "namePlaceholder": "Entrez le nom d'utilisateur",
+      "password": "Mot de passe",
+      "passwordPlaceholder": "Entrez votre mot de passe",
+      "role": "Rôle",
+      "save": "Enregistrer",
+      "success": {
+        "createMessage": "L'administrateur a été créé avec succès",
+        "delete": "Succès",
+        "deleteMessage": "L'administrateur a été supprimé avec succès",
+        "save": "Succès",
+        "updateMessage": "L'administrateur a été mis à jour avec succès",
+        "validation": "Formulaire validé avec succès"
+      },
+      "title": "Administrateurs"
     }
   },
   "contact": {
@@ -432,5 +496,18 @@
       "title": "Site Vitrine"
     },
     "title": "Nos Services"
+  },
+  "error": {
+    "title": "Erreur",
+    "defaultMessage": "Une erreur est survenue",
+    "404": {
+      "title": "Page non trouvée",
+      "message": "Désolé, la page que vous recherchez n'existe pas."
+    },
+    "500": {
+      "title": "Erreur serveur",
+      "message": "Une erreur est survenue sur le serveur."
+    },
+    "button": "Retour à l'accueil"
   }
 }

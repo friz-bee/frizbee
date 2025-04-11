@@ -2,7 +2,7 @@ export interface Language {
   id: number
   name: string
   code: string
-  isDefault: boolean
-  createdAt: string
-  updatedAt: string
+  is_default: boolean
+  created_at: string
+  updated_at: string
 }

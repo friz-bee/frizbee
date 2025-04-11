@@ -2,7 +2,14 @@
 export default defineNuxtConfig({
   devtools: { enabled: true },
 
-  modules: ['@nuxt/ui', '@nuxt/eslint', '@nuxtjs/i18n', '@prisma/nuxt', '@sidebase/nuxt-auth'],
+  modules: [
+    '@nuxt/ui',
+    '@nuxt/eslint',
+    '@nuxtjs/i18n',
+    '@prisma/nuxt',
+    '@sidebase/nuxt-auth',
+    '@nuxt/image'
+  ],
 
   app: {
     head: {
@@ -46,7 +53,7 @@ export default defineNuxtConfig({
   compatibilityDate: '2024-11-27',
 
   auth: {
-    baseURL: process.env.AUTH_ORIGIN,
+    baseURL: process.env.NUXT_AUTH_ORIGIN,
     globalAppMiddleware: {
       isEnabled: false
     },
@@ -81,14 +88,9 @@ export default defineNuxtConfig({
   },
 
   runtimeConfig: {
-    admin: {
-      email: process.env.ADMIN_EMAIL,
-      password: process.env.ADMIN_PASSWORD,
-      username: process.env.ADMIN_USERNAME
-    },
-    jwtSecret: process.env.JWT_SECRET,
+    jwtSecret: process.env.NUXT_JWT_SECRET,
     public: {
-      authOrigin: process.env.AUTH_ORIGIN
+      authOrigin: process.env.NUXT_AUTH_ORIGIN
     }
   },
 

@@ -16,7 +16,7 @@ export default defineEventHandler(async (event) => {
       role: string
     }
 
-    const admin = await prisma.admin.findUnique({
+    const admin = await prisma.admins.findUnique({
       where: { id: decoded.id },
       select: {
         id: true,

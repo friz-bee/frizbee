@@ -50,12 +50,8 @@ jobs:
       # Step 4: Setup database
       - name: Setup database
         env:
-          DATABASE_URL: postgresql://postgres:postgres@localhost:5432/frizbee_test
-          NODE_ENV: test
+          NUXT_DATABASE_URL: postgresql://postgres:postgres@localhost:5432/frizbee_test
           NUXT_PUBLIC_AUTH_ORIGIN: http://localhost:3000
-          NUXT_ADMIN_EMAIL: admin@test.com
-          NUXT_ADMIN_PASSWORD: admin123
-          NUXT_ADMIN_USERNAME: admin
           NUXT_JWT_SECRET: test-jwt-secret
         run: |
           npx prisma generate
@@ -72,12 +68,8 @@ jobs:
           config-file: cypress.config.ts # Use custom Cypress config
         env:
           GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}} # For GitHub API access
-          DATABASE_URL: postgresql://postgres:postgres@localhost:5432/frizbee_test # DB connection
-          NODE_ENV: test
+          NUXT_DATABASE_URL: postgresql://postgres:postgres@localhost:5432/frizbee_test # DB connection
           NUXT_PUBLIC_AUTH_ORIGIN: http://localhost:3000
-          NUXT_ADMIN_EMAIL: admin@test.com
-          NUXT_ADMIN_PASSWORD: admin123
-          NUXT_ADMIN_USERNAME: admin
           NUXT_JWT_SECRET: test-jwt-secret
 
       # Step 6: Upload test results as artifacts

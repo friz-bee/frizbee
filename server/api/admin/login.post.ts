@@ -7,7 +7,7 @@ export default defineEventHandler(async (event) => {
   const config = useRuntimeConfig(event)
 
   try {
-    const admin = await prisma.admin.findUnique({
+    const admin = await prisma.admins.findUnique({
       where: { email: body.email }
     })
 

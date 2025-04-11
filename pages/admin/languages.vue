@@ -27,49 +27,6 @@
           <p class="text-gray-500 dark:text-gray-400">{{ $t('admin.languages.empty') }}</p>
         </div>
       </template>
-
-      <template #isDefault-data="{ row }">
-        <div class="flex justify-center">
-          <UBadge
-            v-if="row.getValue('isDefault')"
-            color="primary"
-            variant="subtle"
-            class="font-medium"
-          >
-            {{ $t('admin.languages.default') }}
-          </UBadge>
-        </div>
-      </template>
-
-      <template #actions-data="{ row }">
-        <div class="flex justify-center">
-          <UDropdownMenu
-            :content="{ align: 'end' }"
-            :items="[
-              {
-                label: t('admin.languages.edit'),
-                icon: 'i-lucide-edit',
-                onSelect: () => editLanguage(row.original)
-              },
-              {
-                label: t('admin.languages.delete'),
-                icon: 'i-lucide-trash',
-                color: 'error',
-                onSelect: () => deleteLanguage(row.original)
-              }
-            ]"
-            aria-label="Actions dropdown"
-          >
-            <UButton
-              color="gray"
-              variant="ghost"
-              icon="i-lucide-more-vertical"
-              class="text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700"
-              aria-label="Actions dropdown"
-            />
-          </UDropdownMenu>
-        </div>
-      </template>
     </UTable>
 
     <!-- Add/Edit Language Modal -->
@@ -81,28 +38,46 @@
       @close="closeModal"
     >
       <template #body>
-        <UForm :state="form" class="gap-y-4">
-          <UFormField label="Name" name="name">
-            <UInput v-model="form.name" />
-          </UFormField>
+        <UForm :schema="schema" :state="form" class="gap-y-4" @submit="saveLanguage">
+          <FormInput
+            v-model="form.name"
+            :label="$t('admin.languages.name')"
+            name="name"
+            :placeholder="$t('admin.languages.namePlaceholder')"
+            required
+            admin
+          >
+            <template #leading>
+              <UIcon name="i-lucide-globe" class="size-6" />
+            </template>
+          </FormInput>
 
-          <UFormField label="Code" name="code">
-            <UInput v-model="form.code" />
-          </UFormField>
+          <FormInput
+            v-model="form.code"
+            :label="$t('admin.languages.code')"
+            name="code"
+            :placeholder="$t('admin.languages.codePlaceholder')"
+            required
+            admin
+          >
+            <template #leading>
+              <UIcon name="i-lucide-code" class="size-6" />
+            </template>
+          </FormInput>
 
           <UFormField>
-            <UCheckbox v-model="form.isDefault" :label="$t('admin.languages.setDefault')" />
+            <UCheckbox v-model="form.is_default" :label="$t('admin.languages.setDefault')" />
           </UFormField>
-        </UForm>
-      </template>
 
-      <template #footer>
-        <UButton color="neutral" variant="outline" @click="closeModal">
-          {{ $t('admin.languages.cancel') }}
-        </UButton>
-        <UButton color="primary" @click="saveLanguage">
-          {{ $t('admin.languages.save') }}
-        </UButton>
+          <div class="flex justify-end gap-4 mt-4">
+            <UButton color="neutral" variant="outline" @click="closeModal">
+              {{ $t('admin.languages.cancel') }}
+            </UButton>
+            <UButton type="submit" color="primary" :loading="isSubmitting">
+              {{ $t('admin.languages.save') }}
+            </UButton>
+          </div>
+        </UForm>
       </template>
     </UModal>
   </div>
@@ -121,11 +96,21 @@ definePageMeta({
 const { error: showError, success: showSuccess } = useNotifications()
 
 const { fetch } = useApi()
+const { state: form, setState, schema, reset } = useLanguageForm()
 
 const loading = ref(false)
 const languages = ref<Language[]>([])
+const isAddLanguageModalOpen = ref(false)
+const editingLanguage = ref<Language | null>(null)
+const isSubmitting = ref(false)
 
 const columns: TableColumn<Language>[] = [
+  {
+    accessorKey: 'id',
+    header: () => t('admin.languages.id'),
+    cell: ({ row }) => `#${row.getValue('id')}`,
+    size: 100
+  },
   {
     accessorKey: 'name',
     header: () => t('admin.languages.name'),
@@ -139,11 +124,11 @@ const columns: TableColumn<Language>[] = [
     size: 100
   },
   {
-    accessorKey: 'isDefault',
+    accessorKey: 'is_default',
     header: () => t('admin.languages.default'),
     cell: ({ row }) =>
       h('div', [
-        row.getValue('isDefault')
+        row.getValue('is_default')
           ? h(
             UBadge,
             {
@@ -197,35 +182,29 @@ const columns: TableColumn<Language>[] = [
   }
 ]
 
-const isAddLanguageModalOpen = ref(false)
-const editingLanguage = ref<Language | null>(null)
-
-const form = ref({
-  name: '',
-  code: '',
-  isDefault: false
-})
-
 const fetchLanguages = async () => {
   try {
     loading.value = true
     const data = await fetch<Language[]>('/api/languages')
     languages.value = data
   } catch (err: any) {
-    showError(t('admin.languages.error.fetch'), err.message || t('admin.languages.error.unknown'))
+    if (!err.data) {
+      showError(t('admin.languages.errors.fetch'), t('admin.languages.errors.unknown'))
+    } else {
+      showError(t('admin.languages.errors.fetch'), t(`admin.languages.errors.${err.data.message}`))
+    }
   } finally {
     loading.value = false
   }
 }
 
 const editLanguage = (language: Language) => {
-  console.log('editLanguage called with:', language)
   editingLanguage.value = language
-  form.value = {
+  setState({
     name: language.name,
     code: language.code,
-    isDefault: language.isDefault
-  }
+    is_default: language.is_default
+  })
   isAddLanguageModalOpen.value = true
 }
 
@@ -237,12 +216,17 @@ const deleteLanguage = async (language: Language) => {
     await fetchLanguages()
     showSuccess(t('admin.languages.success.delete'), t('admin.languages.success.deleteMessage'))
   } catch (err: any) {
-    showError(t('admin.languages.error.delete'), err.message || t('admin.languages.error.unknown'))
+    if (!err.data) {
+      showError(t('admin.languages.errors.delete'), t('admin.languages.errors.unknown'))
+    } else {
+      showError(t('admin.languages.errors.delete'), t(`admin.languages.errors.${err.data.message}`))
+    }
   }
 }
 
 const saveLanguage = async () => {
   try {
+    isSubmitting.value = true
     const url = editingLanguage.value
       ? `/api/languages/${editingLanguage.value.id}`
       : '/api/languages'
@@ -251,9 +235,7 @@ const saveLanguage = async () => {
 
     await fetch<Language>(url, {
       method,
-      body: form.value
-    }).catch((error) => {
-      throw error.data
+      body: form
     })
 
     await fetchLanguages()
@@ -265,31 +247,25 @@ const saveLanguage = async () => {
         : t('admin.languages.success.createMessage')
     )
   } catch (err: any) {
-    if (err.message === 'uniqueCode') {
-      showError(t('admin.languages.error.save'), t('admin.languages.error.uniqueCode'))
+    if (!err.data) {
+      showError(t('admin.languages.errors.save'), t('admin.languages.errors.unknown'))
     } else {
-      showError(t('admin.languages.error.save'), err.message || t('admin.languages.error.unknown'))
+      showError(t('admin.languages.errors.save'), t(`admin.languages.errors.${err.data.message}`))
     }
+  } finally {
+    isSubmitting.value = false
   }
 }
 
 const closeModal = () => {
   isAddLanguageModalOpen.value = false
   editingLanguage.value = null
-  form.value = {
-    name: '',
-    code: '',
-    isDefault: false
-  }
+  reset()
 }
 
 const openAddModal = () => {
   editingLanguage.value = null
-  form.value = {
-    name: '',
-    code: '',
-    isDefault: false
-  }
+  reset()
   isAddLanguageModalOpen.value = true
 }
 

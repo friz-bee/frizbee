@@ -2,16 +2,16 @@ import prisma from '~/lib/prisma'
 
 export default defineEventHandler(async () => {
   try {
-    const [languages, projects, translations] = await Promise.all([
-      prisma.language.count(),
-      prisma.project.count(),
-      prisma.projectTranslation.count()
+    const [languages, projects, admins] = await Promise.all([
+      prisma.languages.count(),
+      prisma.projects.count(),
+      prisma.admins.count()
     ])
 
     return {
       languages,
       projects,
-      translations
+      admins
     }
   } catch (error) {
     console.error('Error fetching stats:', error)

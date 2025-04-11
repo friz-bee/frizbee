@@ -9,7 +9,7 @@
           :to="localePath('/')"
           class="text-xl md:text-2xl font-bold flex items-center gap-2 relative z-10 text-white"
         >
-          <img
+          <NuxtImg
             src="/img/logo.png"
             alt="Frizbee Logo"
             class="w-7 h-7 md:w-8 md:h-8 transition-all duration-300 cursor-pointer"

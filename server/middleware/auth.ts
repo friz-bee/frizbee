@@ -21,8 +21,6 @@ export default defineEventHandler(async (event) => {
 
   const token = getRequestHeader(event, 'authorization')?.split(' ')[1]
 
-  console.log('token', token)
-
   if (!token) {
     throw createError({
       statusCode: 401,
@@ -38,7 +36,7 @@ export default defineEventHandler(async (event) => {
       role: string
     }
 
-    const admin = await prisma.admin.findUnique({
+    const admin = await prisma.admins.findUnique({
       where: { id: decoded.id }
     })
 

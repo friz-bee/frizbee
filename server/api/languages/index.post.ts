@@ -5,7 +5,7 @@ import prisma from '~/lib/prisma'
 export default defineEventHandler(async (event) => {
   try {
     const body = await readBody(event)
-    return await prisma.language.create({
+    return await prisma.languages.create({
       data: body
     })
   } catch (error) {

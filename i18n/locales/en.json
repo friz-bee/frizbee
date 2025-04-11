@@ -45,34 +45,48 @@
   },
   "admin": {
     "dashboard": {
+      "title": "Dashboard",
       "stats": {
         "languages": "Languages",
-        "languagesDescription": "Active languages",
+        "languagesDescription": "Total number of languages",
         "projects": "Projects",
-        "projectsDescription": "Total projects",
-        "translations": "Translations",
-        "translationsDescription": "Total translations"
+        "projectsDescription": "Total number of projects",
+        "admins": "Administrators",
+        "adminsDescription": "Total number of administrators"
       },
-      "title": "Dashboard"
+      "errors": {
+        "fetch": "Error fetching statistics",
+        "unknown": "An unknown error occurred"
+      }
     },
     "languages": {
+      "id": "ID",
       "actions": "Actions",
       "add": "Add Language",
       "cancel": "Cancel",
       "code": "Code",
+      "codePlaceholder": "Enter the language code",
       "default": "Default",
       "delete": "Delete",
       "edit": "Edit",
       "empty": "No languages found",
-      "error": {
+      "erros": {
         "delete": "Error deleting language",
         "fetch": "Error fetching languages",
         "save": "Error saving language",
         "uniqueCode": "Language code already exists",
-        "unknown": "An unknown error occurred"
+        "unknown": "An unknown error occurred",
+        "nameRequired": "Name is required",
+        "nameMinLength": "Name must be at least 2 characters",
+        "nameMaxLength": "Name must not exceed 50 characters",
+        "codeRequired": "Code is required",
+        "codeMinLength": "Code must be at least 2 characters",
+        "codeMaxLength": "Code must not exceed 5 characters",
+        "codeFormat": "Code must be in the format xx or xx-XX (ex: fr or fr-FR)"
       },
       "modalDescription": "Add or edit a language",
       "name": "Name",
+      "namePlaceholder": "Enter the language name",
       "save": "Save",
       "setDefault": "Set as default language",
       "success": {
@@ -101,9 +115,59 @@
       "title": "Admin Login"
     },
     "sidebar": {
+      "admins": "Admins",
       "dashboard": "Dashboard",
       "languages": "Languages",
       "logout": "Logout"
+    },
+    "users": {
+      "actions": "Actions",
+      "add": "Add Administrator",
+      "cancel": "Cancel",
+      "confirmPassword": "Confirm Password",
+      "confirmPasswordPlaceholder": "Confirm your password",
+      "delete": "Delete Administrator",
+      "edit": "Edit Administrator",
+      "email": "Email",
+      "emailPlaceholder": "Enter your email",
+      "empty": "No administrators found",
+      "errors": {
+        "confirmPasswordRequired": "Password confirmation is required",
+        "delete": "Error while deleting",
+        "emailRequired": "Email is required",
+        "fetch": "Error while fetching users",
+        "general": "An error occurred during form validation",
+        "invalidEmail": "Email is not valid",
+        "nameMinLength": "Name must be at least 2 characters",
+        "nameRequired": "Name is required",
+        "passwordComplex": "Password must contain at least one uppercase letter, one lowercase letter, one number and one special character",
+        "passwordMaxLength": "Password must not exceed 50 characters",
+        "passwordMinLength": "Password must be at least 8 characters",
+        "passwordRequired": "Password is required",
+        "passwordsMatch": "Passwords do not match",
+        "save": "Error while saving",
+        "uniqueEmail": "This email is already in use",
+        "uniqueUsername": "This username is already in use",
+        "unknown": "An unknown error occurred",
+        "validation": "Validation error"
+      },
+      "id": "ID",
+      "modalDescription": "Manage administrator information",
+      "name": "Username",
+      "namePlaceholder": "Enter your username",
+      "password": "Password",
+      "passwordPlaceholder": "Enter your password",
+      "role": "Role",
+      "save": "Save",
+      "success": {
+        "createMessage": "Administrator created successfully",
+        "delete": "Success",
+        "deleteMessage": "Administrator deleted successfully",
+        "save": "Success",
+        "updateMessage": "Administrator updated successfully",
+        "validation": "Form validated successfully"
+      },
+      "title": "Administrators"
     }
   },
   "contact": {
@@ -432,5 +496,18 @@
       "title": "Showcase Website"
     },
     "title": "Our Services"
+  },
+  "error": {
+    "title": "Error",
+    "defaultMessage": "An error occurred",
+    "404": {
+      "title": "Page not found",
+      "message": "Sorry, the page you are looking for does not exist."
+    },
+    "500": {
+      "title": "Server error",
+      "message": "An error occurred on the server."
+    },
+    "button": "Back to home"
   }
 }

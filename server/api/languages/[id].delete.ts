@@ -3,7 +3,7 @@ import prisma from '~/lib/prisma'
 export default defineEventHandler(async (event) => {
   const id = Number(event.context.params?.id)
 
-  return await prisma.language.delete({
+  return await prisma.languages.delete({
     where: {
       id
     }

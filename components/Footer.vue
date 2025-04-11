@@ -5,7 +5,7 @@
         <!-- Logo et description -->
         <div class="col-span-1">
           <ULink :to="localePath('/')" class="block mb-4">
-            <img src="/img/logofull.png" alt="Frizbee Logo" class="h-12 w-auto" />
+            <NuxtImg src="/img/logofull.png" alt="Frizbee Logo" class="h-12 w-auto" />
           </ULink>
           <p class="text-slate-300 mb-4">
             {{ $t('footer.description') }}

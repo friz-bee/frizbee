@@ -183,7 +183,7 @@
 
 <script setup lang="ts">
 const { t } = useI18n()
-const { state, setState, schema, reset } = useContactForm()
+const { state, schema, reset } = useContactForm()
 const isSubmitting = ref(false)
 const { success, error } = useNotifications()
 
@@ -195,7 +195,6 @@ const subjectOptions = [
 ]
 
 const handleSubmit = async () => {
-  console.log('handleSubmit')
   try {
     isSubmitting.value = true
 

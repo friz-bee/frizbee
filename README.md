@@ -124,11 +124,11 @@ npx prisma studio
 
 ## 🔐 Environment Variables
 
-- `ADMIN_EMAIL`: Admin email
-- `ADMIN_PASSWORD`: Admin password
-- `ADMIN_USERNAME`: Admin username
-- `JWT_SECRET`: JWT secret key
-- `AUTH_ORIGIN`: Authentication origin URL
+- `NUXT_ADMIN_EMAIL`: Admin email
+- `NUXT_ADMIN_PASSWORD`: Admin password
+- `NUXT_ADMIN_USERNAME`: Admin username
+- `NUXT_JWT_SECRET`: JWT secret key
+- `NUXT_AUTH_ORIGIN`: Authentication origin URL
 
 ## 🌐 Features
 

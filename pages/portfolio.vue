@@ -12,7 +12,7 @@
             class="group relative overflow-hidden rounded-xl bg-gradient-to-br from-gray-900 to-black border border-gray-800 hover:border-primary-500/50 transition-all duration-300 shadow-lg hover:shadow-primary-500/10"
           >
             <div class="aspect-video relative overflow-hidden">
-              <img
+              <NuxtImg
                 src="/img/egenr.png"
                 alt="Egenr Preview"
                 class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500"
@@ -63,7 +63,7 @@
             class="group relative overflow-hidden rounded-xl bg-gradient-to-br from-gray-900 to-black border border-gray-800 hover:border-secondary-500/50 transition-all duration-300 shadow-lg hover:shadow-secondary-500/10"
           >
             <div class="aspect-video relative overflow-hidden">
-              <img
+              <NuxtImg
                 src="/img/quoi-regarder.png"
                 alt="Quoi Regarder Preview"
                 class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500"

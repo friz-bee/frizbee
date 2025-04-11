@@ -2,9 +2,11 @@ import { defineEventHandler } from 'h3'
 import prisma from '~/lib/prisma'
 
 export default defineEventHandler(async () => {
-  return await prisma.languages.findMany({
-    orderBy: {
-      is_default: 'desc'
+  return await prisma.admins.findMany({
+    select: {
+      id: true,
+      username: true,
+      email: true
     }
   })
 })
