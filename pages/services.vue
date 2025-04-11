@@ -223,5 +223,17 @@
 </template>
 
 <script setup lang="ts">
+const { t } = useI18n()
+
+useHead({
+  title: t('services.hero.title'),
+  meta: [
+    { name: 'description', content: t('services.hero.subtitle') },
+    { property: 'og:title', content: t('services.hero.title') },
+    { property: 'og:description', content: t('services.hero.subtitle') },
+    { property: 'og:type', content: 'website' }
+  ]
+})
+
 const localePath = useLocalePath()
 </script>

@@ -70,9 +70,11 @@ definePageMeta({
   }
 })
 
-const { signIn, status } = useAuth()
 const route = useRoute()
 const { t } = useI18n()
+
+const adminMeta = useAdminMeta(t('admin.login.title'))
+useHead(adminMeta)
 
 const state = reactive({
   email: '',

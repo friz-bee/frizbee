@@ -426,6 +426,18 @@
 </template>
 
 <script setup lang="ts">
+const { t } = useI18n()
+
+useHead({
+  title: t('home.hero.title'),
+  meta: [
+    { name: 'description', content: t('home.hero.subtitle') },
+    { property: 'og:title', content: t('home.hero.title') },
+    { property: 'og:description', content: t('home.hero.subtitle') },
+    { property: 'og:type', content: 'website' }
+  ]
+})
+
 const localePath = useLocalePath()
 </script>
 

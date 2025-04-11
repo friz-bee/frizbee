@@ -184,4 +184,14 @@
 <script setup lang="ts">
 const { t } = useI18n()
 const localePath = useLocalePath()
+
+useHead({
+  title: t('pricing.title'),
+  meta: [
+    { name: 'description', content: t('pricing.subtitle') },
+    { property: 'og:title', content: t('pricing.title') },
+    { property: 'og:description', content: t('pricing.subtitle') },
+    { property: 'og:type', content: 'website' }
+  ]
+})
 </script>

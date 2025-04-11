@@ -98,7 +98,7 @@
 
 <script setup lang="ts">
 import type { TableColumn } from '@nuxt/ui/dist/module'
-import { UBadge, UDropdownMenu, UButton } from '#components'
+import { UDropdownMenu, UButton } from '#components'
 
 const { t } = useI18n()
 
@@ -106,6 +106,8 @@ definePageMeta({
   layout: 'admin',
   middleware: ['auth']
 })
+const adminMeta = useAdminMeta(t('admin.users.title'))
+useHead(adminMeta)
 
 const { state: form, setState, schema, reset } = useAdminForm()
 const { error: showError, success: showSuccess } = useNotifications()

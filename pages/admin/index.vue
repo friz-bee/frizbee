@@ -53,6 +53,8 @@ definePageMeta({
   layout: 'admin',
   middleware: ['auth']
 })
+const adminMeta = useAdminMeta(t('admin.dashboard.title'))
+useHead(adminMeta)
 
 const stats = ref({
   languages: 0,

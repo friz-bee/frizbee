@@ -91,6 +91,18 @@
 </template>
 
 <script setup lang="ts">
+const { t } = useI18n()
+
+useHead({
+  title: t('portfolio.title'),
+  meta: [
+    { name: 'description', content: t('portfolio.subtitle') },
+    { property: 'og:title', content: t('portfolio.title') },
+    { property: 'og:description', content: t('portfolio.subtitle') },
+    { property: 'og:type', content: 'website' }
+  ]
+})
+
 const localePath = useLocalePath()
 const { locale } = useI18n()
 const { data: projects } = await useFetch<Project[]>('/api/projects')

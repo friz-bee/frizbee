@@ -187,6 +187,16 @@ const { state, schema, reset } = useContactForm()
 const isSubmitting = ref(false)
 const { success, error } = useNotifications()
 
+useHead({
+  title: t('contact.title'),
+  meta: [
+    { name: 'description', content: t('contact.subtitle') },
+    { property: 'og:title', content: t('contact.title') },
+    { property: 'og:description', content: t('contact.subtitle') },
+    { property: 'og:type', content: 'website' }
+  ]
+})
+
 const subjectOptions = [
   { label: t('contact.form.subjectOptions.site-vitrine'), value: 'site-vitrine' },
   { label: t('contact.form.subjectOptions.e-commerce'), value: 'e-commerce' },

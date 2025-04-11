@@ -157,6 +157,8 @@ definePageMeta({
   layout: 'admin',
   middleware: ['auth']
 })
+const adminMeta = useAdminMeta(t('admin.projects.title'))
+useHead(adminMeta)
 
 const { state: form, setState, schema, reset } = useProjectForm()
 const { error: showError, success: showSuccess } = useNotifications()

@@ -93,6 +93,9 @@ definePageMeta({
   layout: 'admin',
   middleware: ['auth']
 })
+const adminMeta = useAdminMeta(t('admin.languages.title'))
+useHead(adminMeta)
+
 const { error: showError, success: showSuccess } = useNotifications()
 
 const { fetch } = useApi()

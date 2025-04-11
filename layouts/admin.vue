@@ -1,3 +1,19 @@
+<script setup lang="ts">
+import { useI18n } from 'vue-i18n'
+
+const { t } = useI18n()
+
+useHead({
+  title: 'Admin Panel',
+  meta: [
+    { name: 'description', content: 'Administration panel for Frizbee' },
+    { property: 'og:title', content: 'Admin Panel' },
+    { property: 'og:description', content: 'Administration panel for Frizbee' },
+    { property: 'og:type', content: 'website' }
+  ]
+})
+</script>
+
 <template>
   <div class="min-h-screen bg-gray-50 dark:bg-gray-900 text-gray-900 dark:text-gray-100">
     <!-- Sidebar -->
