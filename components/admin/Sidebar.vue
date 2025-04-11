@@ -41,6 +41,16 @@
               <span class="ml-3">{{ $t('admin.sidebar.languages') }}</span>
             </NuxtLink>
           </li>
+          <li>
+            <NuxtLink
+              to="/admin/projects"
+              class="flex items-center p-2 text-gray-900 dark:text-gray-100 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700"
+              active-class="bg-gray-100 dark:bg-gray-700"
+            >
+              <UIcon name="i-lucide-folder" class="w-5 h-5" />
+              <span class="ml-3">{{ $t('admin.sidebar.projects') }}</span>
+            </NuxtLink>
+          </li>
         </ul>
       </div>
 

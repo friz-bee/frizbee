@@ -28,7 +28,6 @@ model languages {
 model projects {
   id           Int                  @id @default(autoincrement())
   slug         String               @unique
-  image_url     String
   tech_stack    String[]
   project_url   String?
   translations project_translations[]

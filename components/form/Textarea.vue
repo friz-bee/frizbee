@@ -1,14 +1,27 @@
 <template>
-  <UFormField :label="label" :name="name" :ui="{ label: 'text-white' }" :required="required">
+  <UFormField
+    :label="label"
+    :name="name"
+    :ui="{ label: admin ? 'text-black' : 'text-white' }"
+    :required="required"
+  >
     <UTextarea
       :model-value="modelValue"
       color="primary"
       variant="outline"
-      :ui="{
-        base: 'bg-slate-800 text-white text-base',
-        input: 'text-white placeholder-gray-400',
-        icon: 'text-gray-400'
-      }"
+      :ui="
+        admin
+          ? {
+            base: 'text-base',
+            input: 'text-base',
+            icon: 'text-base'
+          }
+          : {
+            base: 'bg-slate-800 text-white text-base',
+            input: 'text-white placeholder-gray-400',
+            icon: 'text-gray-400'
+          }
+      "
       class="w-full"
       :rows="rows"
       :placeholder="placeholder || $t(`contact.form.${name}Placeholder`)"
@@ -30,6 +43,7 @@ defineProps<{
   required?: boolean
   rows?: number
   placeholder?: string
+  admin?: boolean
 }>()
 
 defineEmits<{

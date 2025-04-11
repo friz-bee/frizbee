@@ -13,7 +13,11 @@
       variant="outline"
       :ui="
         admin
-          ? undefined
+          ? {
+            base: 'text-base',
+            input: 'text-base',
+            icon: 'text-base'
+          }
           : {
             base: 'bg-slate-800 text-white text-base',
             input: 'text-white placeholder-gray-400',
