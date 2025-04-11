@@ -6,54 +6,89 @@
     <!-- Projects Grid -->
     <section id="projects" class="py-20 relative">
       <div class="container mx-auto px-4">
-        <div class="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto">
+        <div class="grid md:grid-cols-2 gap-8 max-w-6xl mx-auto">
           <div
             v-for="project in projects"
             :key="project.id"
-            class="group relative overflow-hidden rounded-xl bg-gradient-to-br from-gray-900 to-black border border-gray-800 hover:border-primary-500/50 transition-all duration-300 shadow-lg hover:shadow-primary-500/10"
+            class="group relative overflow-hidden rounded-2xl bg-gradient-to-br from-slate-800 to-slate-900 border border-slate-700 hover:border-primary-500/50 transition-all duration-500 hover:shadow-2xl hover:shadow-primary-500/10 transform hover:-translate-y-1"
           >
+            <!-- Glass effect overlay -->
+            <div
+              class="absolute inset-0 bg-gradient-to-br from-primary-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"
+            ></div>
+
+            <!-- Project image/video -->
             <div class="aspect-video relative overflow-hidden">
+              <div
+                class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-transparent z-10"
+              ></div>
               <iframe
                 v-if="project.project_url"
                 :src="project.project_url"
-                class="w-full h-full"
+                class="w-full h-full relative z-0"
                 frameborder="0"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                 allowfullscreen
               ></iframe>
               <div
                 v-else
-                class="w-full h-full bg-gradient-to-br from-primary-500/20 to-primary-700/20 flex items-center justify-center"
+                class="w-full h-full bg-gradient-to-br from-primary-500/20 to-primary-700/20 flex items-center justify-center relative z-0"
               >
-                <UIcon name="i-lucide-globe" class="w-12 h-12 text-primary-500/50" />
+                <UIcon
+                  name="i-lucide-globe"
+                  class="w-16 h-16 text-primary-500/50 group-hover:scale-110 transition-transform duration-500"
+                />
               </div>
-              <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent"></div>
+              <!-- Hover overlay -->
+              <div
+                class="absolute inset-0 bg-primary-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-20"
+              ></div>
             </div>
-            <div class="p-4">
-              <h3 class="text-lg font-bold mb-2">{{ getTranslation(project)?.title }}</h3>
-              <p class="text-gray-300 mb-3 text-sm">
+
+            <!-- Content -->
+            <div class="p-6 relative z-30">
+              <!-- Main tech badge -->
+              <div class="absolute -top-4 left-6">
+                <div
+                  class="bg-gradient-to-r from-primary-400 to-primary-500 text-black px-4 py-1 rounded-full text-xs font-bold tracking-wide shadow-lg"
+                >
+                  {{ project.tech_stack[0] }}
+                </div>
+              </div>
+
+              <h3
+                class="text-xl font-bold text-white mb-3 group-hover:text-primary-400 transition-colors duration-300"
+              >
+                {{ getTranslation(project)?.title }}
+              </h3>
+              <p class="text-gray-300 mb-4 text-sm leading-relaxed">
                 {{ getTranslation(project)?.description }}
               </p>
-              <div class="flex flex-wrap gap-2 mb-3">
+
+              <!-- Tech stack -->
+              <div class="flex flex-wrap gap-2 mb-6">
                 <UBadge
-                  v-for="tech in project.tech_stack"
+                  v-for="tech in project.tech_stack.slice(1)"
                   :key="tech"
                   color="primary"
                   variant="outline"
                   size="sm"
+                  class="backdrop-blur-sm group-hover:bg-primary-500/10 transition-colors duration-300"
                 >
                   {{ tech }}
                 </UBadge>
               </div>
+
+              <!-- View button -->
               <a
                 v-if="project.project_url"
                 :href="project.project_url"
                 target="_blank"
-                class="inline-flex items-center justify-center w-full bg-gradient-to-r from-primary-400 to-primary-500 text-black px-4 py-2 rounded-lg text-sm font-semibold hover:from-primary-500 hover:to-primary-600 transition-all duration-300 shadow-md"
+                class="inline-flex items-center justify-center w-full bg-gradient-to-r from-primary-400 to-primary-500 text-black px-6 py-3 rounded-xl text-sm font-semibold hover:from-primary-500 hover:to-primary-600 transition-all duration-300 shadow-lg hover:shadow-xl hover:shadow-primary-500/20 transform hover:-translate-y-0.5 relative overflow-hidden group/btn"
               >
-                {{ $t('portfolio.projects.view') }}
+                <span class="relative z-10">{{ $t('portfolio.projects.view') }}</span>
                 <svg
-                  class="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform duration-300"
+                  class="w-4 h-4 ml-2 relative z-10 group-hover:translate-x-1 transition-transform duration-300"
                   fill="none"
                   stroke="currentColor"
                   viewBox="0 0 24 24"
@@ -65,6 +100,9 @@
                     d="M14 5l7 7m0 0l-7 7m7-7H3"
                   ></path>
                 </svg>
+                <div
+                  class="absolute inset-0 -translate-x-full group-hover/btn:translate-x-0 bg-gradient-to-r from-primary-500 to-primary-600 transition-transform duration-500"
+                ></div>
               </a>
             </div>
           </div>
@@ -112,7 +150,6 @@ const getTranslation = (project: Project) => {
   const currentLocale = locale.value
   const defaultTranslation = project.translations[0]
 
-  // Try to find translation for current locale
   const translation = project.translations.find((t) => {
     const language = languages.value?.find((l) => l.id === t.language_id)
     return language?.code === currentLocale
@@ -121,9 +158,7 @@ const getTranslation = (project: Project) => {
   return translation || defaultTranslation
 }
 
-// Force update when locale changes
 watch(locale, () => {
-  // This will trigger a re-render of the component
   projects.value = [...(projects.value || [])]
 })
 </script>
