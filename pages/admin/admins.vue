@@ -151,12 +151,16 @@ const columns: TableColumn<Admin>[] = [
                 icon: 'i-lucide-edit',
                 onSelect: () => editUser(row.original)
               },
-              {
-                label: t('admin.users.delete'),
-                icon: 'i-lucide-trash',
-                color: 'error',
-                onSelect: () => deleteUser(row.original)
-              }
+              ...(row.original.id !== 1
+                ? [
+                  {
+                    label: t('admin.users.delete'),
+                    icon: 'i-lucide-trash',
+                    color: 'error',
+                    onSelect: () => deleteUser(row.original)
+                  }
+                ]
+                : [])
             ],
             'aria-label': 'Actions dropdown'
           },
@@ -180,7 +184,10 @@ const fetchUsers = async () => {
   try {
     loading.value = true
     const data = await fetch<Admin[]>('/api/admin/users')
-    users.value = data
+    const currentUser = await fetch<Admin>('/api/admin/me')
+
+    // Filter out super admin (id 1) unless current user is super admin
+    users.value = data.filter((user) => user.id !== 1 || (user.id === 1 && currentUser.id === 1))
   } catch (err: any) {
     if (!err.data) {
       showError(t('admin.users.errors.fetch'), t('admin.users.errors.unknown'))
@@ -203,6 +210,11 @@ const editUser = (user: Admin) => {
 }
 
 const deleteUser = async (user: Admin) => {
+  if (user.id === 1) {
+    showError(t('admin.users.errors.delete'), t('admin.users.errors.cannotDeleteSuperAdmin'))
+    return
+  }
+
   try {
     await fetch(`/api/admin/users/${user.id}`, {
       method: 'DELETE'

@@ -11,7 +11,16 @@ export default defineEventHandler(async (event) => {
     })
   }
 
+  const adminId = parseInt(id)
+
+  if (adminId === 1) {
+    throw createError({
+      statusCode: 403,
+      message: 'Cannot delete super admin'
+    })
+  }
+
   return await prisma.admins.delete({
-    where: { id: parseInt(id) }
+    where: { id: adminId }
   })
 })
