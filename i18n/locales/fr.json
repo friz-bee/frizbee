@@ -5,6 +5,7 @@
       "description": "Contactez-nous pour discuter de votre projet et découvrir comment nous pouvons vous aider à le concrétiser.",
       "title": "Prêt à démarrer votre projet ?"
     },
+    "description": "Nous sommes une équipe passionnée de développeurs web et designers créatifs.",
     "hero": {
       "subtitle": "Une équipe passionnée qui transforme vos idées en solutions digitales innovantes",
       "title": "À propos"
@@ -25,6 +26,7 @@
         "title": "Notre Vision"
       }
     },
+    "title": "À propos de nous",
     "values": {
       "collaboration": {
         "description": "Nous travaillons en étroite collaboration avec nos clients pour garantir des résultats qui dépassent leurs attentes.",
@@ -191,7 +193,7 @@
         "delete": "Erreur lors de la suppression",
         "emailRequired": "L'email est requis",
         "fetch": "Erreur lors de la récupération des utilisateurs",
-        "general": "Une erreur est survenue lors de la validation du formulaire",
+        "general": "Une erreur est survenue pendant la validation du formulaire",
         "invalidEmail": "L'email n'est pas valide",
         "nameMinLength": "Le nom doit contenir au moins 2 caractères",
         "nameRequired": "Le nom est requis",
@@ -275,7 +277,7 @@
       "subjectPlaceholder": "Sélectionnez le type de projet",
       "title": "Envoyez-nous un message"
     },
-    "subtitle": "Vous avez un projet ? Parlons-en ! Remplissez le formulaire ci-dessous et nous vous répondrons dans les plus brefs délais.",
+    "subtitle": "Vous avez un projet ? Discutons-en ! Remplissez le formulaire ci-dessous et nous reviendrons vers vous rapidement.",
     "success": {
       "description": "Nous vous répondrons dans les plus brefs délais.",
       "title": "Message envoyé"
@@ -340,7 +342,7 @@
       "services": {
         "pricing": "Voir les tarifs"
       },
-      "subtitle": "Des solutions web innovantes et performantes pour votre entreprise",
+      "subtitle": "Des solutions web innovantes et efficaces pour votre entreprise",
       "title": "Créons ensemble votre projet digital"
     },
     "portfolio": {
@@ -353,7 +355,7 @@
         "title": "Expertise Technique"
       },
       "performance": {
-        "description": "Des solutions optimisées pour une expérience utilisateur exceptionnelle",
+        "description": "Des solutions conçues pour offrir une expérience utilisateur optimale",
         "title": "Performance Optimale"
       },
       "pricing": "Voir les tarifs",
@@ -387,7 +389,7 @@
       },
       "view": "Voir le projet"
     },
-    "subtitle": "Découvrez nos projets web qui transforment les idées en expériences numériques exceptionnelles",
+    "subtitle": "Découvrez nos projets web transformant vos idées en expériences numériques uniques",
     "title": "Nos Réalisations"
   },
   "pricing": {

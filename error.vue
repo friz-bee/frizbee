@@ -82,7 +82,10 @@
 const localePath = useLocalePath()
 
 defineProps({
-  error: Object as () => NuxtError
+  error: {
+    type: Object,
+    required: true
+  }
 })
 </script>
 
